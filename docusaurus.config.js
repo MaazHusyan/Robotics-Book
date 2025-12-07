@@ -75,21 +75,20 @@ const config = {
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'My Site',
+        title: 'Physical and Humanoid Robotics',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Robotics Book Logo',
           src: 'img/logo.svg',
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            type: 'doc',
+            docId: 'introduction/01-history-and-evolution',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Book',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/maaz/Robotics-Book',
             label: 'GitHub',
             position: 'right',
           },
