@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'Comprehensive Coverage',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    icon: '📚',
     description: (
       <>
         From fundamental kinematics to advanced AI integration, explore the complete
@@ -15,7 +15,7 @@ const FeatureList = [
   },
   {
     title: 'Hands-On Learning',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    icon: '🛠️',
     description: (
       <>
         Master practical skills with real code examples, simulation tools, and
@@ -25,7 +25,7 @@ const FeatureList = [
   },
   {
     title: 'Expert Knowledge',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    icon: '🎯',
     description: (
       <>
         Learn from industry case studies, cutting-edge research, and
@@ -35,15 +35,17 @@ const FeatureList = [
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({icon, title, description}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+      <div className={styles.featureCard}>
+        <div className={styles.featureIcon}>
+          <span className={styles.icon}>{icon}</span>
+        </div>
+        <div className={styles.featureContent}>
+          <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
+          <p className={styles.featureDescription}>{description}</p>
+        </div>
       </div>
     </div>
   );
