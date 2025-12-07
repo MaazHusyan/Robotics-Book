@@ -3,9 +3,22 @@
   align-items: center;
   padding: 2rem 0;
   width: 100%;
+  background: linear-gradient(135deg, #0066cc 0%, #00d4ff 100%);
+  border-radius: 8px;
+  margin: 2rem 0;
 }
 
 .featureSvg {
   height: 200px;
   width: 200px;
+  filter: brightness(0) invert(1);
+}
+
+.text--center {
+  color: white;
+  text-align: center;
+}
+
+.padding-horiz--md {
+  padding: 0 1rem;
 }

@@ -83,7 +83,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'introduction/01-history-and-evolution',
+            docId: 'introduction/history-and-evolution',
             position: 'left',
             label: 'Book',
           },
