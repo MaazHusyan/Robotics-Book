@@ -20,10 +20,11 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- **Robotics Book**: `docs/`, `src/`, `static/` at repository root for Docusaurus
+- **Content Structure**: `docs/chapter-name/` for modular MDX chapters
+- **Code Examples**: `src/code-examples/` for tested robotics code samples
+- **Static Assets**: `static/img/`, `static/code/` for images and downloadable code
+- Paths shown below assume Docusaurus book structure - adjust based on plan.md structure
 
 <!-- 
   ============================================================================

@@ -31,7 +31,45 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+### Educational Clarity Compliance
+- [ ] Content uses simple language with technical terms defined on first use
+- [ ] Includes practical examples and real-world robotics case studies
+- [ ] Progressive concept building with clear learning objectives
+
+### No Visual Diagrams Compliance
+- [ ] All explanations are text-based only
+- [ ] Complex concepts explained through descriptive text and code examples
+- [ ] No diagrams, flowcharts, or visual representations in any files
+
+### Technical Accuracy Compliance
+- [ ] All robotics facts verified with reliable sources (IEEE, ROS docs, academic papers)
+- [ ] Content is current as of 2025 with proper citations
+- [ ] Technical claims have verifiable sources
+
+### Modular Docusaurus Structure Compliance
+- [ ] Content organized as modular chapters in MDX format
+- [ ] Each chapter independently consumable
+- [ ] Logical progression maintained throughout book structure
+
+### Ethical and Inclusive Focus Compliance
+- [ ] Robotics ethics discussions included (safety, societal impact, AI bias)
+- [ ] Inclusive language used throughout
+- [ ] Diverse global examples represented
+
+### Sustainability in Robotics Compliance
+- [ ] Examples promote energy-efficient designs
+- [ ] Open-source tools highlighted (Gazebo, Arduino, ROS)
+- [ ] Sustainable development practices emphasized
+
+### Iterative Spec-Driven Development Compliance
+- [ ] All changes follow spec-driven workflow
+- [ ] AI-generated content includes minimum 20% human review
+- [ ] Traceability and quality control maintained
+
+### Real-World Application Focus Compliance
+- [ ] Every technical concept accompanied by practical examples
+- [ ] Theory connected to practice through working code examples
+- [ ] Industry case studies or hands-on projects included
 
 ## Project Structure
 
