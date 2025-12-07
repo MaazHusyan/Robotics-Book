@@ -78,7 +78,7 @@ const config = {
         title: 'Physical and Humanoid Robotics',
         logo: {
           alt: 'Robotics Book Logo',
-          src: 'img/logo.svg',
+          src: 'img/M_logo.jpeg',
         },
         items: [
           {
@@ -88,7 +88,7 @@ const config = {
             label: 'Book',
           },
           {
-            href: 'https://github.com/maaz/Robotics-Book',
+            href: 'https://github.com/MaazHusyan/Robotics-Book.git',
             label: 'GitHub',
             position: 'right',
           },
@@ -102,7 +102,7 @@ const config = {
             items: [
               {
                 label: 'GitHub Repository',
-                href: 'https://github.com/maaz/Robotics-Book',
+                href: 'https://github.com/MaazHusyan/Robotics-Book.git',
               },
             ],
           },
