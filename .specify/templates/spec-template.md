@@ -127,6 +127,39 @@
 - **GR-006**: Final judgment on quality, accuracy, and style remains with human owner
 - **GR-007**: No auto-commit or auto-push without explicit human confirmation
 
+### Enhanced AI Integration Requirements
+
+- **AI-001**: opencode CLI MUST be used as exclusive AI agent for all /sp.* commands
+- **AI-002**: No other AI agents (Claude Code, Claude, Cursor, etc.) MAY be used or referenced
+- **AI-003**: Bonus point tracking MUST be implemented with [BONUS-50] labels where applicable
+- **AI-004**: Consistent tooling and governance compliance MUST be maintained across all development activities
+
+### RAG Chatbot Requirements
+
+- **RAG-001**: RAG chatbot MUST be embedded in Docusaurus site using specified stack
+- **RAG-002**: OpenAI Agents/ChatKit SDKs MUST be integrated with FastAPI backend
+- **RAG-003**: Neon Serverless Postgres with pgvector MUST be configured for embeddings
+- **RAG-004**: Qdrant Cloud Free Tier MUST be used for vector storage
+- **RAG-005**: Chatbot MUST answer questions from book content including text highlights
+- **RAG-006**: Integration MUST be via sidebar widget or dedicated /chat page
+- **RAG-007**: Base functionality MUST provide 100 points of value
+
+### Authentication and Personalization Requirements
+
+- **AUTH-001**: Better Auth MUST be implemented for signup/signin functionality
+- **AUTH-002**: Custom signup form MUST collect software/hardware background information
+- **AUTH-003**: User profiles MUST be used to personalize content (advanced modules for experts)
+- **AUTH-004**: Per-chapter buttons MUST be added for personalization toggle
+- **AUTH-005**: Bonus point tracking MUST be implemented for personalization features (up to 50 points)
+
+### Multilingual Support Requirements
+
+- **ML-001**: Per-chapter buttons MUST be added for Urdu translation
+- **ML-002**: OpenAI API MUST be used for translation functionality
+- **ML-003**: Original English content MUST be preserved
+- **ML-004**: Translations MUST be provided as overlays or toggles
+- **ML-005**: Bonus point tracking MUST be implemented for multilingual features (up to 50 points)
+
 ### Key Entities *(include if feature involves data)*
 
 - **[Entity 1]**: [What it represents, key attributes without implementation]

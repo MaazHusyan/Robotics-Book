@@ -54,7 +54,14 @@ description: "Task list template for feature implementation"
 - [ ] T003 Initialize [language] project with [framework] dependencies
 - [ ] T004 [P] Configure linting and formatting tools
 - [ ] T005 Create PHR entry for this task generation in history/prompts/robotics-book/
-- [ ] T006 Add versioning header to all generated files (constitution v2.0.0, date, branch, PHR link)
+- [ ] T006 Add versioning header to all generated files (constitution v2.1.0, date, branch, PHR link)
+- [ ] T007 [P] Setup opencode CLI as exclusive AI agent for /sp.* commands
+- [ ] T008 [P] Configure OpenAI Agents/ChatKit SDKs for RAG functionality
+- [ ] T009 [P] Setup FastAPI backend structure for RAG chatbot
+- [ ] T010 [P] Configure Neon Serverless Postgres with pgvector extension
+- [ ] T011 [P] Setup Qdrant Cloud Free Tier for vector storage
+- [ ] T012 [P] Configure Better Auth for authentication system
+- [ ] T013 [P] Setup OpenAI API for multilingual translation support
 
 ---
 
@@ -164,6 +171,15 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX Validate all PHR entries created and correctly placed
 - [ ] TXXX Prepare git commit commands for human review and approval
 - [ ] TXXX Final human oversight validation before completion
+- [ ] TXXX [P] Implement opencode CLI exclusive agent workflows for consistent tooling [BONUS-50]
+- [ ] TXXX [P] Embed RAG chatbot in Docusaurus sidebar widget or /chat page
+- [ ] TXXX [P] Implement user text highlights for RAG queries
+- [ ] TXXX [P] Setup Better Auth with custom signup forms for software/hardware background
+- [ ] TXXX [P] Implement user profile personalization (advanced modules for experts) [BONUS-50]
+- [ ] TXXX [P] Add per-chapter personalization toggle buttons [BONUS-50]
+- [ ] TXXX [P] Implement per-chapter Urdu translation buttons [BONUS-50]
+- [ ] TXXX [P] Configure translation overlays/toggles preserving original English
+- [ ] TXXX Track and validate all bonus point implementations with [BONUS-XX] labels
 
 ---
 

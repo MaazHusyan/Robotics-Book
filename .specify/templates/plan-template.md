@@ -103,6 +103,33 @@
 - [ ] No assumption of approval without explicit confirmation
 - [ ] Quality, accuracy, and style decisions reserved for human
 
+### Enhanced AI Integration Compliance
+- [ ] opencode CLI used as exclusive AI agent for all /sp.* commands
+- [ ] No other AI agents (Claude Code, Claude, Cursor, etc.) used or referenced
+- [ ] Bonus point tracking implemented with [BONUS-50] labels where applicable
+
+### RAG Chatbot Embedment Compliance
+- [ ] RAG chatbot embedded in Docusaurus site using specified stack
+- [ ] OpenAI Agents/ChatKit SDKs integrated with FastAPI backend
+- [ ] Neon Serverless Postgres with pgvector configured for embeddings
+- [ ] Qdrant Cloud Free Tier used for vector storage
+- [ ] Chatbot answers questions from book content including text highlights
+- [ ] Integration via sidebar widget or dedicated /chat page
+
+### Authentication and Personalization Compliance
+- [ ] Better Auth implemented for signup/signin functionality
+- [ ] Custom signup form collects software/hardware background
+- [ ] User profiles used to personalize content (advanced modules for experts)
+- [ ] Per-chapter buttons added for personalization toggle
+- [ ] Bonus point tracking for personalization features
+
+### Multilingual Support Compliance
+- [ ] Per-chapter buttons added for Urdu translation
+- [ ] OpenAI API used for translation functionality
+- [ ] Original English content preserved
+- [ ] Translations provided as overlays or toggles
+- [ ] Bonus point tracking for multilingual features
+
 ## Project Structure
 
 ### Documentation (this feature)

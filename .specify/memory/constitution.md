@@ -1,10 +1,10 @@
 <!--
 Sync Impact Report:
-- Version change: 1.0.0 → 2.0.0 (MAJOR - Added unbreakable governance rules)
-- Modified principles: None (all existing preserved)
-- Added sections: Single Branch Discipline, Content Protection, PHR Enforcement, Git Discipline, Versioning & Traceability, Preservation of Human Oversight
+- Version change: 2.0.0 → 2.1.0 (MINOR - AI agent correction + governance hardening)
+- Modified principles: Claude Code Primary Agent → opencode CLI Primary Agent
+- Added sections: Single Branch Forever, Content Protection Lock, PHR Enforcement, Git Discipline, Human Final Say
 - Removed sections: None
-- Templates requiring updates: ⚠ pending - plan-template.md, spec-template.md, tasks-template.md need robotics-specific alignment
+- Templates requiring updates: ⚠ pending - plan-template.md, spec-template.md, tasks-template.md need opencode alignment
 - Follow-up TODOs: None
 -->
 
@@ -68,6 +68,40 @@ All generated tasks.md, plan.md, spec.md and constitution.md MUST include a head
 ### Preservation of Human Oversight
 AI may generate drafts and execute tasks, but final judgement on quality, accuracy, and style remains with the human owner. The AI must never assume approval.
 
+### Single Branch Forever
+All work — past, present, and future — MUST occur exclusively on Git branch "opencode-ai". No other branch may ever be created, checked out, or mentioned.
+
+### Content Protection Lock
+No existing book content (any file under /docs/, any MDX file, sidebars.js, or src/pages/) may be modified, overwritten, or deleted without explicit written permission in the same command.
+
+### PHR Enforcement
+Every single /sp.* command MUST automatically create a complete Prompt History Record in the correct history/prompts/ subfolder (constitution → /constitution/, all others → /robotics-book/).
+
+### Git Discipline
+After any /sp.* command that modifies files, the system MUST stop and display:
+"Please run: git add . && git commit -m '<suggested message>' && git push origin opencode-ai"
+Auto-commit or auto-push is forbidden.
+
+### Human Final Say
+The human owner has absolute veto power over any generated content or change.
+
+## Enhanced AI Integration
+
+### opencode CLI Primary Agent
+Use opencode CLI as exclusive AI agent for all /sp.* commands and implementation tasks. No other AI agent (including Claude Code, Claude, Cursor, etc.) may be used or referenced. Rationale: Ensures consistent tooling and governance compliance across all development activities.
+
+### RAG Chatbot Embedment
+Embed a Retrieval-Augmented Generation (RAG) chatbot in Docusaurus site using OpenAI Agents/ChatKit SDKs, FastAPI backend, Neon Serverless Postgres (with pgvector for embeddings), and Qdrant Cloud Free Tier for vector storage. The chatbot MUST answer questions from book content, including user-selected text highlights. Base functionality: 100 points. Integrate via a sidebar widget or dedicated /chat page. Rationale: Enhances user interaction without altering core book MDX files.
+
+### Authentication and Personalization
+Implement signup/signin using Better Auth with custom signup form asking for software/hardware background (e.g., "Years in robotics?", "Hardware access?"). Use user profiles to personalize content (bonus: up to 50 points) — e.g., show advanced modules for experts. Add per-chapter buttons for personalization toggle (bonus: up to 50 points). Rationale: Drives user engagement and adaptive learning.
+
+### Multilingual Support
+For logged-in users, add per-chapter buttons to translate content to Urdu (bonus: up to 50 points) using OpenAI API or similar. Preserve original English; translations as overlays or toggles. Rationale: Promotes accessibility for diverse audiences.
+
+### Bonus Point Tracking
+Track implementation of bonus features in spec/plan/tasks with explicit labels (e.g., [BONUS-50]). Human review required before claiming points.
+
 ## Content Standards
 
 ### Technical Stack Requirements
@@ -76,6 +110,12 @@ AI may generate drafts and execute tasks, but final judgement on quality, accura
 - Version Control: Git with semantic versioning for content releases
 - Code Examples: Python, C++, and JavaScript for robotics simulations
 - Simulation Tools: Gazebo, ROS 2, and Web-based simulators
+- AI Agent: opencode CLI as exclusive AI agent for all /sp.* commands
+- RAG Backend: FastAPI with OpenAI Agents/ChatKit SDKs
+- Database: Neon Serverless Postgres with pgvector for embeddings
+- Vector Storage: Qdrant Cloud Free Tier for vector storage
+- Authentication: Better Auth with custom signup forms
+- Translation: OpenAI API for multilingual support (Urdu)
 
 ### Writing Style Guidelines
 - Tone: Engaging mentor voice that guides readers through complex topics
@@ -124,4 +164,4 @@ All content MUST comply with ethical standards, legal requirements, and accessib
 ### Versioning Policy
 Constitution follows semantic versioning: MAJOR for backward-incompatible changes, MINOR for new principles or sections, PATCH for clarifications and corrections. All changes MUST be documented in git commit history with clear rationale and impact assessment.
 
-**Version**: 2.0.0 | **Ratified**: 2025-12-07 | **Last Amended**: 2025-12-10
+**Version**: 2.1.0 | **Ratified**: 2025-12-07 | **Last Amended**: 2025-12-10
