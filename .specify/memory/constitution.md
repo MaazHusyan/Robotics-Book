@@ -1,10 +1,10 @@
 <!--
 Sync Impact Report:
-- Version change: 2.0.0 → 2.1.0 (MINOR - AI agent correction + governance hardening)
-- Modified principles: Claude Code Primary Agent → opencode CLI Primary Agent
-- Added sections: Single Branch Forever, Content Protection Lock, PHR Enforcement, Git Discipline, Human Final Say
+- Version change: 2.1.0 → 2.2.0 (MINOR - authorize Integrated RAG Chatbot)
+- Modified principles: None (all existing preserved)
+- Added sections: Integrated RAG Chatbot (Requirement 2)
 - Removed sections: None
-- Templates requiring updates: ⚠ pending - plan-template.md, spec-template.md, tasks-template.md need opencode alignment
+- Templates requiring updates: ⚠ pending - plan-template.md, spec-template.md, tasks-template.md need RAG authorization
 - Follow-up TODOs: None
 -->
 
@@ -93,6 +93,19 @@ Use opencode CLI as exclusive AI agent for all /sp.* commands and implementation
 ### RAG Chatbot Embedment
 Embed a Retrieval-Augmented Generation (RAG) chatbot in Docusaurus site using OpenAI Agents/ChatKit SDKs, FastAPI backend, Neon Serverless Postgres (with pgvector for embeddings), and Qdrant Cloud Free Tier for vector storage. The chatbot MUST answer questions from book content, including user-selected text highlights. Base functionality: 100 points. Integrate via a sidebar widget or dedicated /chat page. Rationale: Enhances user interaction without altering core book MDX files.
 
+### Integrated RAG Chatbot (Requirement 2 – 100 points)
+The project MUST embed a fully functional Retrieval-Augmented Generation chatbot using:
+- OpenAI Agents / ChatKit SDKs
+- FastAPI backend
+- Neon Serverless Postgres (with pgvector extension)
+- Qdrant Cloud Free Tier as vector store
+The chatbot MUST be reachable from the published Docusaurus book and answer:
+  • Any question about the entire book content
+  • Questions based ONLY on text the user explicitly selects/highlights
+The chatbot UI will be embedded as a floating widget or /chat page without modifying existing /docs/*.mdx content.
+All ingestion pipelines and backend services are permitted under this constitution.
+Rationale: This is the official second requirement of the challenge.
+
 ### Authentication and Personalization
 Implement signup/signin using Better Auth with custom signup form asking for software/hardware background (e.g., "Years in robotics?", "Hardware access?"). Use user profiles to personalize content (bonus: up to 50 points) — e.g., show advanced modules for experts. Add per-chapter buttons for personalization toggle (bonus: up to 50 points). Rationale: Drives user engagement and adaptive learning.
 
@@ -164,4 +177,4 @@ All content MUST comply with ethical standards, legal requirements, and accessib
 ### Versioning Policy
 Constitution follows semantic versioning: MAJOR for backward-incompatible changes, MINOR for new principles or sections, PATCH for clarifications and corrections. All changes MUST be documented in git commit history with clear rationale and impact assessment.
 
-**Version**: 2.1.0 | **Ratified**: 2025-12-07 | **Last Amended**: 2025-12-10
+**Version**: 2.2.0 | **Ratified**: 2025-12-07 | **Last Amended**: 2025-12-10

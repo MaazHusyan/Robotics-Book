@@ -130,6 +130,18 @@
 - [ ] Translations provided as overlays or toggles
 - [ ] Bonus point tracking for multilingual features
 
+### Integrated RAG Chatbot Compliance (Requirement 2)
+- [ ] Fully functional RAG chatbot embedded using specified stack
+- [ ] OpenAI Agents/ChatKit SDKs integrated with FastAPI backend
+- [ ] Neon Serverless Postgres with pgvector configured for embeddings
+- [ ] Qdrant Cloud Free Tier used as vector store
+- [ ] Chatbot reachable from published Docusaurus book
+- [ ] Answers questions about entire book content
+- [ ] Answers questions based on user-selected/highlighted text only
+- [ ] Chatbot UI embedded as floating widget or /chat page
+- [ ] No modification to existing /docs/*.mdx content
+- [ ] All ingestion pipelines and backend services permitted
+
 ## Project Structure
 
 ### Documentation (this feature)

@@ -160,6 +160,20 @@
 - **ML-004**: Translations MUST be provided as overlays or toggles
 - **ML-005**: Bonus point tracking MUST be implemented for multilingual features (up to 50 points)
 
+### Integrated RAG Chatbot Requirements (Requirement 2)
+
+- **RAG-008**: Fully functional RAG chatbot MUST be embedded using specified stack
+- **RAG-009**: OpenAI Agents/ChatKit SDKs MUST be integrated with FastAPI backend
+- **RAG-010**: Neon Serverless Postgres with pgvector MUST be configured for embeddings
+- **RAG-011**: Qdrant Cloud Free Tier MUST be used as vector store
+- **RAG-012**: Chatbot MUST be reachable from published Docusaurus book
+- **RAG-013**: Chatbot MUST answer questions about entire book content
+- **RAG-014**: Chatbot MUST answer questions based on user-selected/highlighted text only
+- **RAG-015**: Chatbot UI MUST be embedded as floating widget or /chat page
+- **RAG-016**: No modification to existing /docs/*.mdx content permitted
+- **RAG-017**: All ingestion pipelines and backend services MUST be permitted
+- **RAG-018**: Base functionality MUST provide 100 points of value
+
 ### Key Entities *(include if feature involves data)*
 
 - **[Entity 1]**: [What it represents, key attributes without implementation]

@@ -62,6 +62,11 @@ description: "Task list template for feature implementation"
 - [ ] T011 [P] Setup Qdrant Cloud Free Tier for vector storage
 - [ ] T012 [P] Configure Better Auth for authentication system
 - [ ] T013 [P] Setup OpenAI API for multilingual translation support
+- [ ] T014 [P] Implement fully functional RAG chatbot embedding [100 points]
+- [ ] T015 [P] Configure OpenAI Agents/ChatKit SDKs with FastAPI backend
+- [ ] T016 [P] Setup ingestion pipelines for book content processing
+- [ ] T017 [P] Implement chatbot UI as floating widget or /chat page
+- [ ] T018 [P] Ensure no modification to existing /docs/*.mdx content
 
 ---
 
