@@ -21,10 +21,10 @@ description: "Task list template for feature implementation"
 ## Path Conventions
 
 - **Robotics Book**: `docs/`, `src/`, `static/` at repository root for Docusaurus
-- **Content Structure**: `docs/chapter-name/` for modular MDX chapters
-- **Code Examples**: `src/code-examples/` for tested robotics code samples
+- **RAG Backend**: `backend/` or `src/backend/` for FastAPI + WebSocket implementation
+- **Frontend Integration**: `src/components/` for chatbot UI components
 - **Static Assets**: `static/img/`, `static/code/` for images and downloadable code
-- Paths shown below assume Docusaurus book structure - adjust based on plan.md structure
+- Paths shown below assume Docusaurus book structure with embedded RAG chatbot
 
 <!-- 
   ============================================================================
@@ -49,48 +49,16 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Verify current branch is "opencode-ai" before proceeding
-- [ ] T002 Create project structure per implementation plan
-- [ ] T003 Initialize [language] project with [framework] dependencies
-- [ ] T004 [P] Configure linting and formatting tools
-- [ ] T005 Create PHR entry for this task generation in history/prompts/robotics-book/
-- [ ] T006 Add versioning header to all generated files (constitution v2.1.0, date, branch, PHR link)
-- [ ] T007 [P] Setup opencode CLI as exclusive AI agent for /sp.* commands
-- [ ] T008 [P] Configure OpenAI Agents/ChatKit SDKs for RAG functionality
-- [ ] T009 [P] Setup FastAPI backend structure for RAG chatbot
-- [ ] T010 [P] Configure Neon Serverless Postgres with pgvector extension
-- [ ] T011 [P] Setup Qdrant Cloud Free Tier for vector storage
-- [ ] T012 [P] Configure Better Auth for authentication system
-- [ ] T013 [P] Setup OpenAI API for multilingual translation support
-- [ ] T014 [P] Implement Integrated RAG Chatbot [50 points]
-- [ ] T015 [P] Configure OpenAI Agents/ChatKit SDKs with FastAPI backend
-- [ ] T016 [P] Setup Neon Serverless Postgres with pgvector for embeddings
-- [ ] T017 [P] Configure Qdrant Cloud Free Tier for vector storage
-- [ ] T018 [P] Implement chatbot UI as floating widget or /chat page
-- [ ] T019 [P] Ensure chatbot answers questions about book content
-- [ ] T020 [P] Ensure chatbot processes user-selected/highlighted text only
-- [ ] T021 [P] Implement opencode Code Subagents & Reusable Skills [50 points]
-- [ ] T022 [P] Replace all occurrences of "Claude" with "opencode" in templates
-- [ ] T023 [P] Replace all occurrences of "Claude" with "opencode" in generated files
-- [ ] T024 [P] Create reusable opencode Code Subagents for repeatable tasks
-- [ ] T025 [P] Implement Agent Skills for consistent tooling
-- [ ] T026 [P] Implement Authentication + Background Survey [50 points]
-- [ ] T027 [P] Setup Better Auth for signup/signin functionality
-- [ ] T028 [P] Create custom signup form for software/hardware background
-- [ ] T029 [P] Implement user profiles and background storage
-- [ ] T030 [P] Integrate authentication system with Docusaurus
-- [ ] T031 [P] Implement Personalization Toggle per Chapter [50 points]
-- [ ] T032 [P] Add per-chapter personalization buttons
-- [ ] T033 [P] Implement content adaptation based on user background
-- [ ] T034 [P] Show advanced modules for expert users
-- [ ] T035 [P] Store and apply user preferences consistently
-- [ ] T036 [P] Implement Urdu Translation Toggle per Chapter [50 points]
-- [ ] T037 [P] Add per-chapter Urdu translation buttons
-- [ ] T038 [P] Integrate OpenAI API for translation functionality
-- [ ] T039 [P] Preserve original English content
-- [ ] T040 [P] Provide translations as overlays or toggles
-- [ ] T041 [P] Ensure existing /docs/ folder and files remain sacred and untouchable
-- [ ] T042 [P] Verify no changes to folder's content and structure without permission
+- [ ] T001 Create project structure per implementation plan
+- [ ] T002 Initialize Python project with FastAPI dependencies
+- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T004 Create PHR entry for this task generation in history/prompts/robotics-book/
+- [ ] T005 Add versioning header to all generated files (constitution v3.0.0, date, branch, PHR link)
+- [ ] T006 [P] Setup OpenAI Agents Python SDK for RAG functionality
+- [ ] T007 [P] Setup FastAPI backend structure for RAG chatbot
+- [ ] T008 [P] Configure Neon Serverless Postgres for metadata storage
+- [ ] T009 [P] Setup Qdrant Cloud Free Tier for vector storage
+- [ ] T010 [P] Configure WebSocket support for real-time streaming
 
 ---
 
@@ -102,12 +70,12 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T011 Setup database schema and connection to Neon Postgres
+- [ ] T012 [P] Setup Qdrant client and vector collection configuration
+- [ ] T013 [P] Implement document ingestion pipeline for book content
+- [ ] T014 [P] Setup OpenAI Agents SDK with Gemini endpoint configuration
+- [ ] T015 Configure error handling and logging infrastructure
+- [ ] T016 Setup environment configuration management
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -123,17 +91,17 @@ Examples of foundational tasks (adjust based on your project):
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T017 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T018 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T019 [P] [US1] Create [Entity1] model in src/models/[entity1].py
+- [ ] T020 [P] [US1] Create [Entity2] model in src/models/[entity2].py
+- [ ] T021 [US1] Implement [Service] in src/services/[service].py (depends on T019, T020)
+- [ ] T022 [US1] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T023 [US1] Add validation and error handling
+- [ ] T024 [US1] Add logging for user story 1 operations
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -147,15 +115,15 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T025 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T026 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Create [Entity] model in src/models/[entity].py
-- [ ] T021 [US2] Implement [Service] in src/services/[service].py
-- [ ] T022 [US2] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T023 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T027 [P] [US2] Create [Entity] model in src/models/[entity].py
+- [ ] T028 [US2] Implement [Service] in src/services/[service].py
+- [ ] T029 [US2] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T030 [US2] Integrate with User Story 1 components (if needed)
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -169,14 +137,14 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T031 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T032 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Create [Entity] model in src/models/[entity].py
-- [ ] T027 [US3] Implement [Service] in src/services/[service].py
-- [ ] T028 [US3] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T033 [P] [US3] Create [Entity] model in src/models/[entity].py
+- [ ] T034 [US3] Implement [Service] in src/services/[service].py
+- [ ] T035 [US3] Implement [endpoint/feature] in src/[location]/[file].py
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -196,30 +164,21 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation
-- [ ] TXXX Verify all content protection rules followed (no unauthorized modifications)
+- [ ] TXXX Verify existing book content remains unchanged
 - [ ] TXXX Validate all PHR entries created and correctly placed
 - [ ] TXXX Prepare git commit commands for human review and approval
 - [ ] TXXX Final human oversight validation before completion
-- [ ] TXXX [P] Validate Integrated RAG Chatbot implementation [50 points]
+- [ ] TXXX [P] Validate Gemini RAG Chatbot implementation [100% completion]
 - [ ] TXXX [P] Test chatbot answers questions about book content
-- [ ] TXXX [P] Test chatbot processes user-selected/highlighted text only
-- [ ] TXXX [P] Validate opencode Code Subagents implementation [50 points]
-- [ ] TXXX [P] Verify all "Claude" references replaced with "opencode"
-- [ ] TXXX [P] Test reusable opencode Code Subagents functionality
-- [ ] TXXX [P] Validate Authentication + Background Survey implementation [50 points]
-- [ ] TXXX [P] Test Better Auth signup/signin functionality
-- [ ] TXXX [P] Verify custom signup form collects background information
-- [ ] TXXX [P] Validate Personalization Toggle implementation [50 points]
-- [ ] TXXX [P] Test per-chapter personalization buttons functionality
-- [ ] TXXX [P] Verify content adaptation based on user background
-- [ ] TXXX [P] Validate Urdu Translation Toggle implementation [50 points]
-- [ ] TXXX [P] Test per-chapter Urdu translation buttons
-- [ ] TXXX [P] Verify OpenAI API translation functionality
-- [ ] TXXX [P] Ensure original English content preserved
-- [ ] TXXX [P] Validate content protection rules followed
-- [ ] TXXX [P] Verify single branch discipline (opencode-ai only)
-- [ ] TXXX [P] Validate automatic git discipline after /sp.* commands
-- [ ] TXXX [P] Verify feature scope limitations (no blog, multiplayer, payments)
+- [ ] TXXX [P] Test chatbot accepts selected/highlighted text as context
+- [ ] TXXX [P] Test real-time streaming via WebSocket
+- [ ] TXXX [P] Validate OpenAI Agents SDK with Gemini integration
+- [ ] TXXX [P] Verify Qdrant Cloud vector storage functionality
+- [ ] TXXX [P] Verify Neon Serverless Postgres metadata storage
+- [ ] TXXX [P] Test FastAPI + WebSocket backend functionality
+- [ ] TXXX [P] Validate chatbot is always-on and fully functional
+- [ ] TXXX [P] Optional: Test Python/ROS snippet execution [+100 points bonus]
+- [ ] TXXX [P] Optional: Verify Python/ROS execution is safe and sandboxed
 
 ---
 
@@ -313,3 +272,4 @@ With multiple developers:
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence
+- Focus: RAG chatbot implementation only - all other features are out of scope

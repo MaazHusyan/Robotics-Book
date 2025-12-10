@@ -84,82 +84,31 @@
 
 ### Mandatory Scope Requirements
 
-### Integrated RAG Chatbot Requirements (50 points)
+### Gemini RAG Chatbot Requirements (100% completion)
 
 - **RAG-001**: RAG chatbot MUST be embedded in published Docusaurus book
-- **RAG-002**: OpenAI Agents / ChatKit SDKs MUST be used for implementation
-- **RAG-003**: FastAPI backend MUST be implemented for chatbot functionality
-- **RAG-004**: Neon Serverless Postgres with pgvector MUST be configured
-- **RAG-005**: Qdrant Cloud Free Tier MUST be used for vector storage
-- **RAG-006**: Chatbot MUST answer questions about book content
-- **RAG-007**: Chatbot MUST use only text user currently selects/highlights
-- **RAG-008**: Integration MUST be via sidebar widget or dedicated /chat page
+- **RAG-002**: Chatbot MUST answer any question from whole book content
+- **RAG-003**: Chatbot MUST accept selected/highlighted text as extra context
+- **RAG-004**: Chatbot MUST stream answers in real time via WebSocket
+- **RAG-005**: OpenAI Agents Python SDK MUST be used with Gemini (OpenAI-compatible endpoint)
+- **RAG-006**: Vectors MUST be stored in Qdrant Cloud (free tier)
+- **RAG-007**: Metadata MUST be stored in Neon Serverless Postgres
+- **RAG-008**: Backend MUST be implemented with FastAPI + WebSocket
+- **RAG-009**: Chatbot MUST be always-on and fully functional
 
-### opencode Code Subagents Requirements (50 points)
+### Optional Bonus Requirements (+100 points)
 
-- **OCS-001**: opencode CLI MUST be used as exclusive AI agent throughout project
-- **OCS-002**: Every mention of "Claude" MUST be replaced with "opencode"
-- **OCS-003**: Reusable opencode Code Subagents MUST be created and utilized
-- **OCS-004**: Agent Skills MUST be implemented for repeatable tasks
-- **OCS-005**: Consistent tooling MUST be maintained across development activities
+- **BONUS-001**: Chatbot CAN run simple Python/ROS snippets on demand (optional)
+- **BONUS-002**: Python/ROS execution MUST be safe and sandboxed (if implemented)
 
-### Authentication + Background Survey Requirements (50 points)
+### Out of Scope Requirements (DO NOT IMPLEMENT)
 
-- **AUTH-001**: Better Auth MUST be implemented for signup/signin functionality
-- **AUTH-002**: Custom signup form MUST collect software and hardware background
-- **AUTH-003**: User profiles MUST be created and managed
-- **AUTH-004**: Background information MUST be stored for personalization use
-- **AUTH-005**: Authentication system MUST be integrated with Docusaurus
-
-### Personalization Toggle Requirements (50 points)
-
-- **PER-001**: Per-chapter personalization buttons MUST be implemented
-- **PER-002**: Content adaptation MUST be based on user background
-- **PER-003**: Advanced modules MUST be shown for expert users
-- **PER-004**: Personalization toggle MUST be functional for logged-in users
-- **PER-005**: User preferences MUST be stored and applied consistently
-
-### Urdu Translation Toggle Requirements (50 points)
-
-- **URD-001**: Per-chapter Urdu translation buttons MUST be implemented
-- **URD-002**: OpenAI API MUST be integrated for translation functionality
-- **URD-003**: Original English content MUST be preserved
-- **URD-004**: Translations MUST be provided as overlays or toggles
-- **URD-005**: Translation system MUST be functional for logged-in users
-
-### Strict Governance Requirements
-
-### Content Protection Requirements
-
-- **CPR-001**: Existing /docs/ folder and all current files MUST remain sacred and untouchable
-- **CPR-002**: No changes to folder's files content and structure without explicit permission
-- **CPR-003**: New chapter/module generation only with explicit human owner request
-
-### Single Branch Requirements
-
-- **SBR-001**: All AI work MUST happen exclusively on opencode-ai branch
-- **SBR-002**: Automatic checkout/create opencode-ai after every /sp.* command
-- **SBR-003**: No other branches created, checked out, or referenced
-
-### Git Discipline Requirements
-
-- **GIT-001**: Automatic git add all changed files after every successful /sp.* command
-- **GIT-002**: Descriptive commit messages MUST be generated automatically
-- **GIT-003**: Automatic push to origin opencode-ai after every successful /sp.* command
-- **GIT-004**: No auto-commit or auto-push without explicit confirmation
-
-### opencode Exclusive Usage Requirements
-
-- **OPN-001**: Every occurrence of "Claude" MUST be replaced with "opencode" in all templates
-- **OPN-002**: Every occurrence of "Claude" MUST be replaced with "opencode" in all generated files
-- **OPN-003**: No other AI agents mentioned or referenced anywhere
-
-### Feature Scope Limitation Requirements
-
-- **LIM-001**: No blog features MUST be implemented
-- **LIM-002**: No multiplayer features MUST be implemented
-- **LIM-003**: No payment features MUST be implemented
-- **LIM-004**: No other features beyond mandatory scope MUST be implemented
+- **OUT-001**: No new chapters beyond existing content
+- **OUT-002**: No Urdu translation functionality
+- **OUT-003**: No authentication or user survey system
+- **OUT-004**: No personalization toggles
+- **OUT-005**: No opencode subagents
+- **OUT-006**: No additional MDX files beyond what exists
 
 ### Key Entities *(include if feature involves data)*
 

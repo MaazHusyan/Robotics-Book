@@ -1,70 +1,69 @@
 <!--
 Sync Impact Report:
-- Version change: 2.2.0 → 1.1.0 (MAJOR - complete override with new mandatory scope)
-- Modified principles: All previous principles replaced with new mandatory scope
-- Added sections: Integrated RAG Chatbot (50 points), opencode Code Subagents (50 points), Authentication + Background Survey (50 points), Personalization Toggle (50 points), Urdu Translation Toggle (50 points)
-- Removed sections: All previous core principles and governance sections
-- Templates requiring updates: ✅ plan-template.md, ✅ spec-template.md, ✅ tasks-template.md - all updated with new requirements
-- Follow-up TODOs: None
+- Version change: 1.1.0 → 3.0.0 (MAJOR - complete scope reset to single-focus RAG chatbot)
+- Modified principles: All previous bonus features removed, replaced with single RAG chatbot requirement
+- Added sections: Gemini RAG Chatbot (sole deliverable), Optional Python/ROS Execution Bonus
+- Removed sections: Integrated RAG Chatbot (50 points), opencode Code Subagents (50 points), Authentication + Background Survey (50 points), Personalization Toggle (50 points), Urdu Translation Toggle (50 points), Content Protection, Single Branch Discipline, Git Discipline, opencode Exclusive Usage, Feature Scope Limitation
+- Templates requiring updates: ✅ plan-template.md, ✅ spec-template.md, ✅ tasks-template.md - all reset to RAG-only focus
+- Follow-up TODOs: Regenerate existing specs/*/plan.md and tasks.md files
 -->
 
-# Physical and Humanoid Robotics Book Constitution
+# Physical & Humanoid Robotics Book with Live RAG Tutor Constitution
 
-## Mandatory Scope
+## Sole Deliverable
 
-### Integrated RAG Chatbot (50 bonus points)
-The published book MUST embed a fully functional Retrieval-Augmented Generation (RAG) chatbot using:
-- OpenAI Agents / ChatKit SDKs
-- FastAPI backend
-- Neon Serverless Postgres + pgvector
-- Qdrant Cloud Free Tier
-The chatbot answers questions about the book content and can use only the text the user currently selects/highlights.
+### Gemini RAG Chatbot (100% completion requirement)
+The project passes and is considered 100% complete the moment a fully working, always-on, Gemini-powered RAG chatbot is embedded in the published Docusaurus book that can:
 
-### opencode Code Subagents & Reusable Skills (50 bonus points)
-Participants earn 50 bonus points by creating and using reusable opencode Code Subagents and Agent Skills throughout the project (replace every mention of "Claude" with "opencode").
+**Core Requirements (Mandatory):**
+- Answer any question from the whole book content using RAG
+- Accept selected/highlighted text as extra context
+- Stream answers in real time via WebSocket
+- Use OpenAI Agents Python SDK with Gemini (OpenAI-compatible endpoint)
+- Store vectors in Qdrant Cloud (free tier)
+- Store metadata in Neon Serverless Postgres
+- Be implemented with FastAPI + WebSocket backend
 
-### Authentication + Background Survey (50 bonus points)
-Implement signup/signin with Better Auth. At signup, ask users about their software and hardware background to enable personalization.
+**Integration Requirements:**
+- Embedded directly in the published Docusaurus book
+- Always-on and fully functional
+- Real-time streaming responses
+- Context-aware from user selections
 
-### Personalization Toggle per Chapter (50 bonus points)
-Logged-in users can press a button at the start of each chapter to personalize content based on their background.
+## Optional Bonus (+100 points)
 
-### Urdu Translation Toggle per Chapter (50 bonus points)
-Logged-in users can press a button at the start of each chapter to instantly translate the entire chapter into Urdu using OpenAI API.
+### Python/ROS Snippet Execution
+Chatbot gains ability to run simple Python/ROS snippets on demand. This is optional and not mandatory for project completion.
 
-## Strict Rules
+## Out of Scope (Forever Declared)
 
-### Content Protection
-The existing /docs/ folder and all its current files are sacred and untouchable until the human owner explicitly requests new chapter/module generation in a future spec. Don't change the folder's files content and structure.
+The following features are officially out of scope and must not be implemented:
+- All 7-chapter / 28-module content requirements → cancelled
+- Urdu translation → cancelled  
+- Authentication / Better Auth / survey → cancelled
+- Personalization toggle → cancelled
+- opencode subagents → cancelled
+- Any remaining MDX files beyond what already exist → optional cosmetic only
 
-### Single Branch Discipline
-All AI work happens exclusively on branch opencode-ai.
+## Content Rules
 
-### Git Discipline After Every /sp Command
-After every successful /sp.* command: automatically checkout/create opencode-ai, git add all changed files, commit with descriptive message, push to origin opencode-ai.
-
-### opencode Exclusive Usage
-Replace every occurrence of "Claude" with "opencode" in all templates and generated files.
-
-### Feature Scope Limitation
-No other features (blog, multiplayer, payments, etc.) are allowed.
+### Existing Chapters
+- Existing chapters (1–3 or however many exist) stay as-is and are sufficient
+- No new chapters are required
+- Existing /docs/ folder content remains unchanged
 
 ## Governance
 
 ### Human Authority
-Human owner has final authority.
+Human owner has final authority over all project decisions.
 
 ### Amendment Process
-Amendments only via new /sp.constitution with justification.
+Amendments only via new constitutional specification with clear justification.
 
 ### Versioning
-Semantic versioning: this is v1.1.0 (MINOR – added the four bonus features above).
+Semantic versioning applies:
+- MAJOR: Backward incompatible scope changes (like this reset)
+- MINOR: New features added within current scope
+- PATCH: Clarifications and non-semantic refinements
 
-## Tech Stack
-
-### Locked Technologies
-- Docusaurus 2+, MDX, Mermaid
-- FastAPI, Neon, Qdrant
-- Better Auth, OpenAI API
-
-**Version**: 1.1.0 | **Ratified**: 2025-12-10 | **Last Amended**: 2025-12-10
+**Version**: 3.0.0 | **Ratified**: 2025-12-10 | **Last Amended**: 2025-12-10
