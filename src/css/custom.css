@@ -126,8 +126,8 @@
 
 /* Enhanced navigation */
 .navbar {
-  background: rgba(15, 23, 42, 0.8) !important;
-  backdrop-filter: blur(10px);
+  background: rgba(18, 31, 61, 0.8) !important;
+  /* backdrop-filter: blur(10px); */
   border-bottom: 1px solid rgba(59, 130, 246, 0.1);
 }
 

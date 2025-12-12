@@ -3,6 +3,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import InteractiveChatButton from '@site/src/components/InteractiveChatButton';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
@@ -25,6 +26,7 @@ function HomepageHeader() {
             <span className={styles.buttonText}>Start Reading</span>
             <span className={styles.buttonArrow}>→</span>
           </Link>
+          <InteractiveChatButton />
         </div>
       </div>
     </header>
