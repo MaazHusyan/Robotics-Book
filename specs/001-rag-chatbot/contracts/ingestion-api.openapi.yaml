@@ -1,0 +1,245 @@
+openapi: 3.0.0
+info:
+  title: Content Ingestion API
+  version: 1.0.0
+  description: Administrative API for ingesting robotics book content into database
+
+servers:
+  - url: https://api.robotics-book.com
+    description: Production server
+  - url: http://localhost:8000
+    description: Development server
+
+paths:
+  /api/content/ingest:
+    post:
+      summary: Ingest book content into database
+      tags: [Content, Admin]
+      operationId: ingestBookContent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestContentRequest'
+      responses:
+        '200':
+          description: Content ingested successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngestContentResponse'
+        '400':
+          description: Invalid content data provided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Duplicate content detected
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error during ingestion
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/content/reindex:
+    post:
+      summary: Re-index all content in Qdrant vectors
+      tags: [Content, Admin]
+      operationId: reindexContent
+      responses:
+        '200':
+          description: Re-indexing started successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  task_id:
+                    type: string
+                    format: uuid
+                    description: Background task identifier
+                  status:
+                    type: string
+                    enum: [started, in_progress, completed, failed]
+                    description: Re-indexing status
+        '500':
+          description: Server error during re-indexing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/content/status/{task_id}:
+    get:
+      summary: Check re-indexing task status
+      tags: [Content, Admin]
+      operationId: getReindexStatus
+      parameters:
+        - name: task_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Task status retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  task_id:
+                    type: string
+                    format: uuid
+                  status:
+                    type: string
+                    enum: [started, in_progress, completed, failed]
+                  progress:
+                    type: object
+                    properties:
+                      processed:
+                        type: integer
+                        description: Number of items processed
+                      total:
+                        type: integer
+                        description: Total items to process
+                      errors:
+                        type: integer
+                        description: Number of errors encountered
+                  started_at:
+                    type: string
+                    format: date-time
+                  completed_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+        '404':
+          description: Task not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error code identifier
+        message:
+          type: string
+          description: Human-readable error message
+        details:
+          type: object
+          description: Additional error context
+        timestamp:
+          type: string
+          format: date-time
+          description: Error timestamp
+
+    IngestContentRequest:
+      type: object
+      required:
+        - content_data
+      properties:
+        content_data:
+          type: array
+          items:
+            type: object
+            required:
+              - chapter_number
+              - chapter_title
+              - section_number
+              - section_title
+              - content_text
+              - source_file
+            properties:
+              chapter_number:
+                type: integer
+                minimum: 1
+                description: Sequential chapter number
+              chapter_title:
+                type: string
+                maxLength: 255
+                description: Chapter title
+              section_number:
+                type: integer
+                minimum: 1
+                description: Section number within chapter
+              section_title:
+                type: string
+                maxLength: 255
+                description: Section title
+              content_text:
+                type: string
+                description: Full MDX content
+              source_file:
+                type: string
+                maxLength: 255
+                description: Original MDX file path
+              word_count:
+                type: integer
+                minimum: 0
+                description: Word count for statistics
+        force_reindex:
+          type: boolean
+          default: false
+          description: Force re-indexing of existing content
+
+    IngestContentResponse:
+      type: object
+      properties:
+        processed_count:
+          type: integer
+          minimum: 0
+          description: Number of content sections processed
+        created_count:
+          type: integer
+          minimum: 0
+          description: Number of new content sections created
+        updated_count:
+          type: integer
+          minimum: 0
+          description: Number of existing content sections updated
+        duplicate_count:
+          type: integer
+          minimum: 0
+          description: Number of duplicate sections detected
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/IngestError'
+          description: Array of processing errors
+        processing_time_ms:
+          type: integer
+          minimum: 0
+          description: Total processing time in milliseconds
+
+    IngestError:
+      type: object
+      properties:
+        content_hash:
+          type: string
+          description: Content hash that caused error
+        error:
+          type: string
+          description: Error description
+        section_reference:
+          type: string
+          description: Reference to problematic content
+
+tags:
+  - name: Content
+    description: Book content ingestion and management operations
+  - name: Admin
+    description: Administrative operations for content management

@@ -1,0 +1,493 @@
+openapi: 3.0.0
+info:
+  title: RAG Chatbot API
+  version: 1.0.0
+  description: REST API for robotics book RAG chatbot with FastAPI
+  contact:
+    name: Robotics Book Team
+    email: support@robotics-book.com
+
+servers:
+  - url: https://api.robotics-book.com
+    description: Production server
+  - url: http://localhost:8000
+    description: Development server
+
+paths:
+  /api/health:
+    get:
+      summary: Health check - verify all services
+      tags: [Health]
+      operationId: healthCheck
+      responses:
+        '200':
+          description: All systems operational
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
+  /api/sessions:
+    post:
+      summary: Create new chat session
+      tags: [Sessions]
+      operationId: createSession
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSessionRequest'
+      responses:
+        '200':
+          description: Session created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+        '400':
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/sessions/{session_id}:
+    get:
+      summary: Get conversation history for session
+      tags: [Sessions]
+      operationId: getSessionHistory
+      parameters:
+        - name: session_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Conversation history retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationHistory'
+        '404':
+          description: Session not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/sessions/{session_id}/history:
+    get:
+      summary: Get conversation history for session (alias)
+      tags: [Sessions]
+      operationId: getSessionHistoryAlias
+      parameters:
+        - name: session_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Conversation history retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationHistory'
+
+  /api/chat/ask:
+    post:
+      summary: Ask chatbot a question
+      tags: [Chat]
+      operationId: askQuestion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AskQuestionRequest'
+      responses:
+        '200':
+          description: Chatbot response with sources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+        '400':
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/content/ingest:
+    post:
+      summary: Ingest book content into database
+      tags: [Content, Admin]
+      operationId: ingestContent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestContentRequest'
+      responses:
+        '200':
+          description: Content ingested successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngestContentResponse'
+        '400':
+          description: Invalid content data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Duplicate content detected
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [healthy, degraded, unhealthy]
+          description: Overall system health status
+        neon_postgres:
+          type: string
+          description: Neon Postgres connection status
+        qdrant_cloud:
+          type: string
+          description: Qdrant Cloud connection status
+        gemini_api:
+          type: string
+          description: Google Gemini API status
+        timestamp:
+          type: string
+          format: date-time
+          description: Health check timestamp
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error code identifier
+        message:
+          type: string
+          description: Human-readable error message
+        details:
+          type: object
+          description: Additional error context
+        timestamp:
+          type: string
+          format: date-time
+          description: Error timestamp
+
+    CreateSessionRequest:
+      type: object
+      required:
+        - user_identifier
+      properties:
+        user_identifier:
+          type: string
+          description: Browser fingerprint or user identifier
+          example: "mozilla_5.0_windows_10.0"
+        browser_info:
+          type: object
+          description: Browser and device information
+          properties:
+            user_agent:
+              type: string
+              description: Full user agent string
+            screen_resolution:
+              type: string
+              description: Screen resolution
+            language:
+              type: string
+              description: Browser language
+
+    Session:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique session identifier
+        user_identifier:
+          type: string
+          description: User identifier
+        created_at:
+          type: string
+          format: date-time
+          description: Session creation timestamp
+        last_activity_at:
+          type: string
+          format: date-time
+          description: Last activity timestamp
+        is_active:
+          type: boolean
+          description: Session active status
+        conversation_count:
+          type: integer
+          minimum: 0
+          description: Total conversations in session
+
+    ConversationHistory:
+      type: object
+      properties:
+        session_id:
+          type: string
+          format: uuid
+          description: Session identifier
+        conversations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Conversation'
+          description: Array of conversations in chronological order
+
+    Conversation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique conversation identifier
+        user_query:
+          type: string
+          description: User's original question
+        chatbot_response:
+          type: string
+          description: Chatbot's response
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Source'
+          description: Source citations for response
+        response_time_ms:
+          type: integer
+          minimum: 0
+          description: Response time in milliseconds
+        confidence_score:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: RAG relevance confidence score
+        tokens_used:
+          type: integer
+          minimum: 0
+          description: API tokens consumed
+        is_helpful:
+          type: boolean
+          description: User feedback on response quality
+        created_at:
+          type: string
+          format: date-time
+          description: Conversation timestamp
+
+    Source:
+      type: object
+      properties:
+        chapter:
+          type: string
+          description: Chapter title
+        section:
+          type: string
+          description: Section title
+        excerpt:
+          type: string
+          description: Relevant quote from book content
+        relevance_score:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Relevance score for this source
+        chapter_number:
+          type: integer
+          minimum: 1
+          description: Sequential chapter number
+        section_number:
+          type: integer
+          minimum: 1
+          description: Sequential section number within chapter
+        source_file:
+          type: string
+          description: Original MDX file path
+
+    AskQuestionRequest:
+      type: object
+      required:
+        - session_id
+        - query
+      properties:
+        session_id:
+          type: string
+          format: uuid
+          description: Session identifier from /sessions/create
+        query:
+          type: string
+          description: User's question or prompt
+        selected_text:
+          type: string
+          description: Optional user-selected text for context
+        selected_section_id:
+          type: string
+          format: uuid
+          description: Optional reference to specific book section
+        max_sources:
+          type: integer
+          minimum: 1
+          maximum: 10
+          default: 5
+          description: Maximum number of sources to retrieve
+
+    ChatResponse:
+      type: object
+      properties:
+        response:
+          type: string
+          description: Chatbot's answer text
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Source'
+          description: Source citations used for response
+        response_time_ms:
+          type: integer
+          minimum: 0
+          description: Total response time in milliseconds
+        tokens_used:
+          type: integer
+          minimum: 0
+          description: Total tokens consumed for this response
+        confidence_score:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Overall response confidence score
+        session_id:
+          type: string
+          format: uuid
+          description: Session identifier
+
+    IngestContentRequest:
+      type: object
+      required:
+        - content_data
+      properties:
+        content_data:
+          type: array
+          items:
+            type: object
+            required:
+              - chapter_number
+              - chapter_title
+              - section_number
+              - section_title
+              - content_text
+              - source_file
+            properties:
+              chapter_number:
+                type: integer
+                minimum: 1
+                description: Sequential chapter number
+              chapter_title:
+                type: string
+                maxLength: 255
+                description: Chapter title
+              section_number:
+                type: integer
+                minimum: 1
+                description: Section number within chapter
+              section_title:
+                type: string
+                maxLength: 255
+                description: Section title
+              content_text:
+                type: string
+                description: Full MDX content
+              source_file:
+                type: string
+                maxLength: 255
+                description: Original MDX file path
+              word_count:
+                type: integer
+                minimum: 0
+                description: Word count for statistics
+        force_reindex:
+          type: boolean
+          default: false
+          description: Force re-indexing of existing content
+
+    IngestContentResponse:
+      type: object
+      properties:
+        processed_count:
+          type: integer
+          minimum: 0
+          description: Number of content sections processed
+        created_count:
+          type: integer
+          minimum: 0
+          description: Number of new content sections created
+        updated_count:
+          type: integer
+          minimum: 0
+          description: Number of existing content sections updated
+        duplicate_count:
+          type: integer
+          minimum: 0
+          description: Number of duplicate sections detected
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              content_hash:
+                type: string
+                description: Content hash that caused error
+              error:
+                type: string
+                description: Error description
+          description: Array of processing errors
+        processing_time_ms:
+          type: integer
+          minimum: 0
+          description: Total processing time in milliseconds
+
+tags:
+  - name: Health
+    description: Health check and system status operations
+  - name: Sessions
+    description: Session management and conversation tracking
+  - name: Chat
+    description: Chat question answering and RAG functionality
+  - name: Content
+    description: Book content ingestion and management operations
+  - name: Admin
+    description: Administrative operations for content management
