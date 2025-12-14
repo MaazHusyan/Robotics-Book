@@ -40,7 +40,7 @@
 - [ ] T007 Create SQLAlchemy models for database entities
 - [ ] T008 Implement Neon Postgres connection service
 - [ ] T009 Implement Qdrant Cloud client and collection setup
-- [ ] T010 Implement Google Gemini API integration service
+- [ ] T010 Implement OpenAI Agents SDK with Gemini API integration service
 - [ ] T011 Create FastAPI application structure with CORS middleware
 - [ ] T012 Set up logging and error handling infrastructure
 - [ ] T013 Create health check endpoints for all services
@@ -94,7 +94,7 @@
 - [ ] T040 [P] [US2] Create question embedding generation service
 - [ ] T041 [P] [US2] Implement Qdrant vector similarity search
 - [ ] T042 [P] [US2] Create RAG context building from search results
-- [ ] T043 [P] [US2] Implement Google Gemini API integration for response generation
+- [ ] T043 [P] [US2] Implement OpenAI Agents SDK with Gemini API integration for response generation
 - [ ] T044 [P] [US2] Create chat question/answer API endpoint
 - [ ] T045 [P] [US2] Add source citation formatting and metadata
 - [ ] T046 [P] [US2] Implement response time tracking and confidence scoring
@@ -107,7 +107,7 @@
 - [ ] T050 [P] [US2] Unit test embedding generation with mock Gemini API
 - [ ] T051 [P] [US2] Unit test Qdrant search with mock vector database
 - [ ] T052 [P] [US2] Unit test RAG context building logic
-- [ ] T053 [P] [US2] Unit test Gemini API integration with mock responses
+- [ ] T053 [P] [US2] Unit test OpenAI Agents SDK with Gemini API integration with mock responses
 - [ ] T054 [P] [US2] Integration test chat API end-to-end
 - [ ] T055 [P] [US2] Performance test with concurrent requests
 - [ ] T056 [P] [US2] Test error handling and rate limiting
@@ -208,5 +208,5 @@
 ### Success Metrics
 - **Phase 1 Completion**: All infrastructure services operational
 - **User Story 1**: Content ingestion working with 100% success rate
-- **User Story 2**: Chat responses with <3s latency and 95% accuracy
+- **User Story 2**: Chat responses with <5s latency (3-5s target) and 95% accuracy
 - **Overall**: System supports 10+ concurrent users with <2s response time

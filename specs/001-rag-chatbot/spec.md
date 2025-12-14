@@ -82,7 +82,7 @@ As a reader, I want to see my conversation history so that I can review previous
 - **TI-002**: Backend MUST use FastAPI with REST API endpoints
 - **TI-003**: Vector storage MUST use Qdrant Cloud Free Tier
 - **TI-004**: Metadata storage MUST use Neon serverless Postgres
-- **TI-005**: LLM integration MUST use Google Gemini (custom integration, not OpenAI)
+- **TI-005**: LLM integration MUST use OpenAI Agents SDK with Gemini model and API
 
 ### Database Schema Requirements
 
@@ -96,7 +96,7 @@ As a reader, I want to see my conversation history so that I can review previous
 
 - **PR-001**: Book content retrieval MUST be under 100ms
 - **PR-002**: Vector search (Qdrant) MUST be under 200ms
-- **PR-003**: Total RAG response time MUST be under 3-5 seconds
+- **PR-003**: Total RAG response time MUST be under 5 seconds (3-5 second target)
 - **PR-004**: System MUST support 10-50 concurrent users on free tiers
 
 ### Quality Assurance Requirements
@@ -120,7 +120,7 @@ As a reader, I want to see my conversation history so that I can review previous
 - **SC-001**: Chatbot successfully embedded in Docusaurus site with functional UI
 - **SC-002**: Chatbot can answer book-related questions with 95% accuracy
 - **SC-003**: Text selection feature works with 99% success rate
-- **SC-004**: Response time consistently under 3 seconds for typical queries
+- **SC-004**: Response time consistently under 5 seconds for typical queries (3-5 second target)
 - **SC-005**: All 13 existing book chapters successfully ingested and indexed
 - **SC-006**: System maintains conversation history with session continuity
 
@@ -257,7 +257,8 @@ CREATE INDEX idx_sessions_active ON sessions(is_active);
 
 ## Assumptions
 
-- Google Gemini embedding model will be used (not OpenAI)
+- OpenAI Agents SDK with Gemini model will be used for LLM integration
+- Google Gemini embedding model will be used for vector generation
 - Vector dimension will be 768 (typical for Gemini embeddings)
 - Content chunking at 512 tokens for large sections
 - Session timeout after 24 hours of inactivity
@@ -268,4 +269,52 @@ CREATE INDEX idx_sessions_active ON sessions(is_active);
 - Neon serverless Postgres instance (connection via .env)
 - Qdrant Cloud Free Tier account
 - Google Gemini API access
+- OpenAI Agents SDK for Python
 - Existing Docusaurus 3.9.2 site structure
+
+## LLM Integration Architecture
+
+The system will use OpenAI Agents SDK with Gemini model integration:
+
+```python
+import os 
+from agents import (
+    AsyncOpenAI,
+    OpenAIChatCompletionsModel,
+    RunConfig
+)
+from dotenv import load_dotenv, find_dotenv
+
+# Load environment variables from .env file
+_: bool = load_dotenv(find_dotenv())
+
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY", "") #ONLY FOR ENABLING TRACING 
+
+gemini_api_key = os.getenv("GEMINI_API_KEY")
+gemini_base_url = "https://generativelanguage.googleapis.com/v1beta/openai/"
+
+# setting up the OpenAI client with Gemini API key and base URL
+client = AsyncOpenAI(
+    api_key = gemini_api_key,
+    base_url = gemini_base_url,
+)
+
+# model 
+geminiModel = OpenAIChatCompletionsModel(
+    openai_client = client,
+    model="gemini-2.0-flash",
+)
+
+# configuring the model
+config = RunConfig(
+    model = geminiModel,
+    model_provider = client,
+    tracing_disabled=False
+)
+```
+
+This hybrid approach provides:
+- OpenAI Agents SDK framework for agent orchestration
+- Gemini model for actual LLM inference
+- Consistent API interface across the application
+- Access to OpenAI Agents ecosystem while using Gemini capabilities

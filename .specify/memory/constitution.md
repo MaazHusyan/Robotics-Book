@@ -19,7 +19,7 @@ Chatbot responses MUST be accurate, relevant to robotics book content, and enhan
 Chatbot responses MUST only reference actual book content with clear source attribution. All answers MUST include citations to specific book sections, chapters, or page references. The system MUST NOT hallucinate information or generate content beyond the documented book material.
 
 ### Performance & Scalability
-Chatbot MUST deliver fast retrieval and response times using serverless architecture. Response time for typical queries MUST be under 2 seconds. The system MUST scale efficiently using Neon serverless Postgres and Qdrant Cloud Free Tier without performance degradation.
+Chatbot MUST deliver fast retrieval and response times using serverless architecture. Response time for typical queries MUST be under 5 seconds (3-5 seconds target). The system MUST scale efficiently using Neon serverless Postgres and Qdrant Cloud Free Tier without performance degradation.
 
 ## Content Standards
 
@@ -27,7 +27,7 @@ Chatbot MUST deliver fast retrieval and response times using serverless architec
 - Platform: Docusaurus 3.9.2 + React 19.0.0 (frontend), FastAPI (backend)
 - Vector DB: Qdrant Cloud Free Tier
 - Database: Neon Serverless Postgres
-- LLM Integration: OpenAI Agents/ChatKit SDKs
+- LLM Integration: OpenAI Agents SDK with Gemini model and API
 - API Communication: REST API (FastAPI)
 - Deployment: GitHub Pages (frontend), Serverless (backend)
 - Version Control: Git with semantic versioning
@@ -43,7 +43,7 @@ Chatbot MUST deliver fast retrieval and response times using serverless architec
 
 ### Quality Assurance Requirements
 - RAG answer accuracy testing with sample robotics book questions
-- Response time benchmarks under 2 seconds for typical queries
+- Response time benchmarks under 5 seconds for typical queries (3-5 second target)
 - Vector search relevance scoring above 0.8 threshold
 - Text selection feature reliability testing with 99% success rate
 - API error handling and resilience testing with graceful degradation
@@ -63,7 +63,7 @@ All code generation, prompts, and documentation creation MUST be done via AI too
 - Chatbot successfully embedded in Docusaurus site
 - Can answer book-related questions with 95% accuracy
 - Text selection feature works reliably with 99% success rate
-- Response time consistently under 2 seconds for typical queries
+- Response time consistently under 5 seconds for typical queries (3-5 second target)
 - User satisfaction score above 4.5/5.0 for chatbot interactions
 
 ## Governance

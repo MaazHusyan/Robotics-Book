@@ -12,12 +12,12 @@ Create a comprehensive RAG chatbot integration for the Physical and Humanoid Rob
 ## Technical Context
 
 **Language/Version**: Python 3.9+ (FastAPI), TypeScript/JSX (React 19.0.0)  
-**Primary Dependencies**: FastAPI, Neon Postgres, Qdrant Cloud, Google Gemini API, React 19.0.0  
+**Primary Dependencies**: FastAPI, Neon Postgres, Qdrant Cloud, OpenAI Agents SDK, Gemini API, React 19.0.0  
 **Storage**: Neon serverless Postgres (relational data), Qdrant Cloud (vector embeddings)  
 **Testing**: pytest (backend), React Testing Library (frontend), load testing tools  
 **Target Platform**: GitHub Pages (static frontend) + Serverless (backend)  
 **Project Type**: web/fullstack - Docusaurus static site with FastAPI backend  
-**Performance Goals**: <3s total response time, <200ms vector search, 10-50 concurrent users  
+**Performance Goals**: <5s total response time (3-5s target), <200ms vector search, 10-50 concurrent users  
 **Constraints**: Free tier limitations (Neon, Qdrant), browser CORS policies, Gemini API rate limits  
 **Scale/Scope**: 13 book sections initially, scalable to 100+ sections, support multiple concurrent users  
 
@@ -127,7 +127,7 @@ package.json                 # Updated with new dependencies
 | UI Integration | Chatbot placement in Docusaurus | Floating chat button with modal interface for optimal UX |
 | Text Selection | Accessibility and performance | React-based selection with keyboard support and screen reader compatibility |
 | Session Management | Cross-page conversation continuity | Server-side sessions with browser fallback for persistence |
-| LLM Integration | Gemini API compatibility | AsyncOpenAI SDK with custom base_url for Gemini endpoints |
+| LLM Integration | OpenAI Agents SDK with Gemini model | Use OpenAI Agents SDK with Gemini API integration as specified |
 
 ## Phase 0: Research & Decisions - COMPLETED
 
@@ -157,7 +157,7 @@ package.json                 # Updated with new dependencies
 - **quickstart.md**: Development setup and deployment guide
 
 ### Design Validation
-- **Performance Requirements**: <3s total response time, <200ms vector search validated
+- **Performance Requirements**: <5s total response time (3-5s target), <200ms vector search validated
 - **Constitution Alignment**: All principles satisfied with technical implementation approach
 - **Integration Patterns**: CORS, async operations, error handling documented
 - **Deployment Strategy**: GitHub Pages + serverless backend architecture confirmed
