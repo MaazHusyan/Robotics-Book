@@ -20,11 +20,13 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Project Structure**: [Path convention 1]
-- **Source Code**: [Path convention 2]
-- **Tests**: [Path convention 3]
-- **Documentation**: [Path convention 4]
-- Paths shown below assume [project type] structure - adjust based on plan.md structure
+- **Frontend Components**: `src/components/rag-chatbot/` for React components
+- **Backend API**: `backend/api/` for FastAPI endpoints and models
+- **Vector Integration**: `backend/vector/` for Qdrant integration code
+- **Database**: `backend/db/` for Neon Postgres models and migrations
+- **Tests**: `tests/` for RAG accuracy, performance, and integration tests
+- **Documentation**: `docs/api/` for OpenAPI/Swagger documentation
+- Paths shown below assume RAG Chatbot integration structure - adjust based on plan.md structure
 
 <!-- 
   ============================================================================

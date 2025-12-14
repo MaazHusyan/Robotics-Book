@@ -31,20 +31,20 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-### [PRINCIPLE_1_NAME] Compliance
-- [ ] [Compliance check 1 for principle 1]
-- [ ] [Compliance check 2 for principle 1]
-- [ ] [Compliance check 3 for principle 1]
+### User-Centric RAG Design Compliance
+- [ ] Chatbot responses are accurate and relevant to robotics book content
+- [ ] User-selected text context enhances chatbot responses
+- [ ] User intent prioritization implemented in response generation
 
-### [PRINCIPLE_2_NAME] Compliance
-- [ ] [Compliance check 1 for principle 2]
-- [ ] [Compliance check 2 for principle 2]
-- [ ] [Compliance check 3 for principle 2]
+### Content Integrity Compliance
+- [ ] Responses only reference actual book content with source attribution
+- [ ] All answers include citations to specific book sections or chapters
+- [ ] No hallucination or generation of content beyond documented material
 
-### [PRINCIPLE_3_NAME] Compliance
-- [ ] [Compliance check 1 for principle 3]
-- [ ] [Compliance check 2 for principle 3]
-- [ ] [Compliance check 3 for principle 3]
+### Performance & Scalability Compliance
+- [ ] Response time under 2 seconds for typical queries
+- [ ] Serverless architecture using Neon and Qdrant Cloud Free Tier
+- [ ] System scales efficiently without performance degradation
 
 ## Project Structure
 

@@ -82,33 +82,34 @@
   Fill them out with the right functional requirements.
 -->
 
-### [REQUIREMENT_CATEGORY_1]
+### RAG Chatbot Functional Requirements
 
-- **[REQ-001]**: [Requirement description]
-- **[REQ-002]**: [Requirement description]
-- **[REQ-003]**: [Requirement description]
-- **[REQ-004]**: [Requirement description]
+- **RC-001**: Chatbot MUST answer questions about Physical and Humanoid Robotics book content
+- **RC-002**: Chatbot MUST support user text selection for context enhancement
+- **RC-003**: Chatbot MUST provide source citations for all responses
+- **RC-004**: Chatbot MUST integrate seamlessly with Docusaurus site
 
-### [REQUIREMENT_CATEGORY_2]
+### Technical Integration Requirements
 
-- **[REQ-005]**: [Requirement description]
-- **[REQ-006]**: [Requirement description]
-- **[REQ-007]**: [Requirement description]
-- **[REQ-008]**: [Requirement description]
+- **TI-001**: Frontend MUST use React 19.0.0 components embedded in Docusaurus
+- **TI-002**: Backend MUST use FastAPI with REST API endpoints
+- **TI-003**: Vector storage MUST use Qdrant Cloud Free Tier
+- **TI-004**: Metadata storage MUST use Neon serverless Postgres
+- **TI-005**: LLM integration MUST use OpenAI Agents/ChatKit SDKs
 
-### [REQUIREMENT_CATEGORY_3]
+### Performance Requirements
 
-- **[REQ-009]**: [Requirement description]
-- **[REQ-010]**: [Requirement description]
-- **[REQ-011]**: [Requirement description]
-- **[REQ-012]**: [Requirement description]
+- **PR-001**: Response time MUST be under 2 seconds for typical queries
+- **PR-002**: Vector search relevance score MUST be above 0.8 threshold
+- **PR-003**: Text selection feature MUST have 99% success rate
+- **PR-004**: System MUST scale without performance degradation
 
 ### Quality Assurance Requirements
 
-- **[QR-001]**: [Quality requirement description]
-- **[QR-002]**: [Quality requirement description]
-- **[QR-003]**: [Quality requirement description]
-- **[QR-004]**: [Quality requirement description]
+- **QR-001**: RAG answer accuracy MUST be tested with sample questions
+- **QR-002**: Response time benchmarks MUST be validated under load
+- **QR-003**: API error handling MUST be tested for resilience
+- **QR-004**: Content accuracy MUST be validated against book source material
 
 ### Key Entities *(include if feature involves data)*
 
