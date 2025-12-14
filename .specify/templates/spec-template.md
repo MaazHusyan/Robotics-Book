@@ -82,40 +82,33 @@
   Fill them out with the right functional requirements.
 -->
 
-### Educational Requirements
+### [REQUIREMENT_CATEGORY_1]
 
-- **ER-001**: Content MUST explain concepts using simple language with technical terms defined on first use
-- **ER-002**: Content MUST include practical examples and real-world robotics case studies
-- **ER-003**: Content MUST build concepts progressively with clear learning objectives
-- **ER-004**: Content MUST be accessible to beginners to intermediate readers
+- **[REQ-001]**: [Requirement description]
+- **[REQ-002]**: [Requirement description]
+- **[REQ-003]**: [Requirement description]
+- **[REQ-004]**: [Requirement description]
 
-### Technical Accuracy Requirements
+### [REQUIREMENT_CATEGORY_2]
 
-- **TR-001**: All robotics content MUST be factually correct and current as of 2025
-- **TR-002**: All technical claims MUST have verifiable sources (IEEE, ROS docs, academic papers)
-- **TR-003**: Content MUST include proper citations in IEEE format with links to online sources
-- **TR-004**: Code examples MUST be tested and verified to work with specified versions
+- **[REQ-005]**: [Requirement description]
+- **[REQ-006]**: [Requirement description]
+- **[REQ-007]**: [Requirement description]
+- **[REQ-008]**: [Requirement description]
 
-### Content Structure Requirements
+### [REQUIREMENT_CATEGORY_3]
 
-- **SR-001**: Content MUST be organized as modular chapters in MDX format for Docusaurus
-- **SR-002**: Each chapter MUST be independently consumable while maintaining logical progression
-- **SR-003**: Content MUST be text-based only with no diagrams or visual representations
-- **SR-004**: Complex concepts MUST be explained through descriptive text and code examples
-
-### Ethics and Sustainability Requirements
-
-- **ER-001**: Content MUST incorporate robotics ethics discussions (safety, societal impact, AI bias)
-- **ER-002**: Content MUST use inclusive language with diverse global examples
-- **ER-003**: Examples MUST promote energy-efficient designs and sustainable practices
-- **ER-004**: Content MUST highlight open-source tools (Gazebo, Arduino, ROS)
+- **[REQ-009]**: [Requirement description]
+- **[REQ-010]**: [Requirement description]
+- **[REQ-011]**: [Requirement description]
+- **[REQ-012]**: [Requirement description]
 
 ### Quality Assurance Requirements
 
-- **QR-001**: All content MUST pass manual technical review by subject matter experts
-- **QR-002**: Each chapter MUST include learning objectives, summary, and practical exercises
-- **QR-003**: Content MUST be accessible to readers with visual impairments
-- **QR-004**: AI-generated content MUST include minimum 20% human review and refinement
+- **[QR-001]**: [Quality requirement description]
+- **[QR-002]**: [Quality requirement description]
+- **[QR-003]**: [Quality requirement description]
+- **[QR-004]**: [Quality requirement description]
 
 ### Key Entities *(include if feature involves data)*
 

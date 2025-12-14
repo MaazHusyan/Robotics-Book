@@ -20,11 +20,11 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Robotics Book**: `docs/`, `src/`, `static/` at repository root for Docusaurus
-- **Content Structure**: `docs/chapter-name/` for modular MDX chapters
-- **Code Examples**: `src/code-examples/` for tested robotics code samples
-- **Static Assets**: `static/img/`, `static/code/` for images and downloadable code
-- Paths shown below assume Docusaurus book structure - adjust based on plan.md structure
+- **Project Structure**: [Path convention 1]
+- **Source Code**: [Path convention 2]
+- **Tests**: [Path convention 3]
+- **Documentation**: [Path convention 4]
+- Paths shown below assume [project type] structure - adjust based on plan.md structure
 
 <!-- 
   ============================================================================
