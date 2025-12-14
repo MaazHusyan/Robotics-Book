@@ -2,46 +2,62 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Physical and Humanoid Robotics
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the comprehensive guide on physical and humanoid robotics. This book covers the fundamental principles, design considerations, and practical applications of robotics, with a special focus on humanoid robots that mimic human form and function.
+
+## About This Book
+
+This resource is designed for students, engineers, and enthusiasts who want to understand:
+
+- **Physical robotics fundamentals** including kinematics, dynamics, and control systems
+- **Humanoid robot design** principles and challenges
+- **Motion planning** and control algorithms
+- **Balance and gait** mechanics for bipedal locomotion
+- **Hands and grippers** for manipulation tasks
+
+## Book Structure
+
+The book is organized into three main sections:
+
+### 1. Introduction
+Explore the history, evolution, and fundamental concepts of robotics, with special emphasis on why humanoid robotics represents a unique and important field of study.
+
+### 2. Physical Robotics Fundamentals
+Dive deep into the core technical foundations including:
+- Kinematics and dynamics analysis
+- Actuators and motor systems
+- Sensors and perception systems
+- Power systems and energy management
+- Control theory and feedback systems
+
+### 3. Humanoid Robot Design
+Focus on the specific challenges and solutions for creating human-like robots:
+- Anthropomorphic design principles
+- Degrees of freedom and joint configurations
+- Motion planning and control algorithms
+- Balance and gait mechanics
+- Hands and gripper design
+
+## Learning Approach
+
+Each chapter includes:
+- **Theoretical foundations** with clear explanations
+- **Practical examples** and real-world applications
+- **Mathematical formulations** where appropriate
+- **Implementation considerations** for engineers
+- **Future directions** and research opportunities
+
+## Prerequisites
+
+To get the most out of this book, readers should have:
+- Basic understanding of physics and mathematics
+- Familiarity with programming concepts
+- Interest in mechanical and electrical systems
+- Curiosity about artificial intelligence and machine learning
 
 ## Getting Started
 
-Get started by **creating a new site**.
+Begin with Chapter 1 to understand the context and importance of humanoid robotics, then proceed through the fundamentals in Chapter 2 before diving into specialized design topics in Chapter 3.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Each chapter builds upon previous knowledge while remaining accessible to readers with different backgrounds and interests.

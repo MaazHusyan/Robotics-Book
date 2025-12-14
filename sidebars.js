@@ -47,6 +47,7 @@ const sidebars = {
       items: [
         'humanoid-design/anthropomorphic-design',
         'humanoid-design/degrees-freedom',
+        'humanoid-design/motion-planning-control',
         'humanoid-design/balance-gait',
         'humanoid-design/hands-grippers',
       ],
