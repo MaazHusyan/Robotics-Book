@@ -20,15 +20,15 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://maaz.github.io',
+  url: 'https://MaazHusyan.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/Robotics-Book/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'MaazHusyan', // Usually your GitHub org/user name.
+  projectName: 'Robotics-Book', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -50,13 +50,37 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/MaazHusyan/Robotics-Book/tree/main/',
         },
 
         theme: {
           customCss: './src/css/custom.css',
         },
       }),
+    ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-sitemap',
+      {
+        id: 'sitemap',
+        changefreq: 'weekly',
+        priority: 0.8,
+        ignorePatterns: ['/tags/**'],
+        filename: 'sitemap.xml',
+        createSitemapItems: async (params) => {
+          const { defaultCreateSitemapItems, ...rest } = params;
+          const items = await defaultCreateSitemapItems(rest);
+          
+          // Higher priority for main book chapters
+          return items.map(item => ({
+            ...item,
+            priority: item.url.includes('/docs/') ? 0.9 : 0.5,
+            changefreq: item.url.includes('/docs/') ? 'weekly' : 'monthly'
+          }));
+        }
+      },
     ],
   ],
 
@@ -88,7 +112,7 @@ const config = {
             label: 'Book',
           },
           {
-            href: 'https://github.com/maaz/Robotics-Book',
+            href: 'https://github.com/MaazHusyan/Robotics-Book',
             label: 'GitHub',
             position: 'right',
           },
@@ -102,7 +126,7 @@ const config = {
             items: [
               {
                 label: 'GitHub Repository',
-                href: 'https://github.com/maaz/Robotics-Book',
+                href: 'https://github.com/MaazHusyan/Robotics-Book',
               },
             ],
           },
