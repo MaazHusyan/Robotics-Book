@@ -20,11 +20,13 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Project Structure**: [Path convention 1]
-- **Source Code**: [Path convention 2]
-- **Tests**: [Path convention 3]
-- **Documentation**: [Path convention 4]
-- Paths shown below assume [project type] structure - adjust based on plan.md structure
+- **Backend Service**: `backend/src/`, `backend/tests/` at repository root
+- **Models**: `backend/src/models/` for data models
+- **Services**: `backend/src/services/` for business logic
+- **API**: `backend/src/api/` for endpoints and routing
+- **Config**: `backend/src/config/` for configuration and database setup
+- **Utils**: `backend/src/utils/` for utility functions
+- Paths shown below assume backend service structure - adjust based on plan.md structure
 
 <!-- 
   ============================================================================
@@ -47,11 +49,12 @@ description: "Task list template for feature implementation"
 
 ## Phase 1: Setup (Shared Infrastructure)
 
-**Purpose**: Project initialization and basic structure
+**Purpose**: Backend project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T001 Create backend project structure per implementation plan
+- [ ] T002 [P] Initialize Python project with requirements.txt and setup files
+- [ ] T003 [P] Configure .env.example file with required environment variables
+- [ ] T004 Create Dockerfile and docker-compose.yml for containerization
 
 ---
 
@@ -63,12 +66,12 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T005 Setup configuration management in backend/src/config/settings.py
+- [ ] T006 [P] Configure Neon Postgres database connection in backend/src/config/database.py
+- [ ] T007 [P] Configure Qdrant Cloud connection in backend/src/config/vector_db.py
+- [ ] T008 Setup FastAPI application in backend/src/api/main.py
+- [ ] T009 Create data models for ConversationSession, BookContentChunk, ChatMessage, and ContentReference
+- [ ] T010 Setup logging and error handling infrastructure
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 

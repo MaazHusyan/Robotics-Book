@@ -1,0 +1,30 @@
+{
+  "id": "introduction/why-humanoid-robotics",
+  "title": "Why Humanoid Robotics Matters in 2025 and Beyond",
+  "description": "Explore the critical importance and future potential of humanoid robots in society",
+  "source": "@site/docs/01-introduction/03-why-humanoid-robotics.mdx",
+  "sourceDirName": "01-introduction",
+  "slug": "/introduction/why-humanoid-robotics",
+  "permalink": "/Robotics-Book/docs/introduction/why-humanoid-robotics",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/01-introduction/03-why-humanoid-robotics.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "Why Humanoid Robotics Matters in 2025 and Beyond",
+    "sidebar_label": "Why Humanoid Robotics",
+    "description": "Explore the critical importance and future potential of humanoid robots in society",
+    "hide_table_of_contents": false
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Types of Robots",
+    "permalink": "/Robotics-Book/docs/introduction/types-of-robots"
+  },
+  "next": {
+    "title": "Book Overview",
+    "permalink": "/Robotics-Book/docs/introduction/book-overview"
+  }
+}

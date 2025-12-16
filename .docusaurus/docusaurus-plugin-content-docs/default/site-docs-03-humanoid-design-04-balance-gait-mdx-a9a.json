@@ -1,0 +1,29 @@
+{
+  "id": "humanoid-design/balance-gait",
+  "title": "Balance, Gait Generation, and Whole-Body Control",
+  "description": "Understanding balance mechanisms, gait generation algorithms, and whole-body control strategies for humanoid robots",
+  "source": "@site/docs/03-humanoid-design/04-balance-gait.mdx",
+  "sourceDirName": "03-humanoid-design",
+  "slug": "/humanoid-design/balance-gait",
+  "permalink": "/Robotics-Book/docs/humanoid-design/balance-gait",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/03-humanoid-design/04-balance-gait.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "Balance, Gait Generation, and Whole-Body Control",
+    "sidebar_label": "Balance & Gait Control",
+    "description": "Understanding balance mechanisms, gait generation algorithms, and whole-body control strategies for humanoid robots"
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Kinematic Chains & Joint Config",
+    "permalink": "/Robotics-Book/docs/humanoid-design/kinematic-chains"
+  },
+  "next": {
+    "title": "Hands & Grippers",
+    "permalink": "/Robotics-Book/docs/humanoid-design/hands-grippers"
+  }
+}

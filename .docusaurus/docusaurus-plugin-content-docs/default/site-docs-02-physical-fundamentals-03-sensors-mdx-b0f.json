@@ -1,0 +1,73 @@
+{
+  "id": "physical-fundamentals/sensors",
+  "title": "Sensors and Perception",
+  "description": "Comprehensive guide to robotic sensors and perception systems for humanoid robots, covering proprioception, exteroception, and sensor fusion",
+  "source": "@site/docs/02-physical-fundamentals/03-sensors.mdx",
+  "sourceDirName": "02-physical-fundamentals",
+  "slug": "/physical-fundamentals/sensors",
+  "permalink": "/Robotics-Book/docs/physical-fundamentals/sensors",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/02-physical-fundamentals/03-sensors.mdx",
+  "tags": [
+    {
+      "inline": true,
+      "label": "sensors",
+      "permalink": "/Robotics-Book/docs/tags/sensors"
+    },
+    {
+      "inline": true,
+      "label": "perception",
+      "permalink": "/Robotics-Book/docs/tags/perception"
+    },
+    {
+      "inline": true,
+      "label": "robotics",
+      "permalink": "/Robotics-Book/docs/tags/robotics"
+    },
+    {
+      "inline": true,
+      "label": "physical-fundamentals",
+      "permalink": "/Robotics-Book/docs/tags/physical-fundamentals"
+    }
+  ],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "Sensors and Perception",
+    "sidebar_label": "Sensors and Perception",
+    "description": "Comprehensive guide to robotic sensors and perception systems for humanoid robots, covering proprioception, exteroception, and sensor fusion",
+    "hide_table_of_contents": false,
+    "authors": [
+      "Robotics Book Team"
+    ],
+    "tags": [
+      "sensors",
+      "perception",
+      "robotics",
+      "physical-fundamentals"
+    ],
+    "reading_time": 25,
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "01-kinematics-dynamics",
+      "02-actuators-motors"
+    ],
+    "learning_objectives": [
+      "Understand different types of sensors used in humanoid robotics",
+      "Compare proprioceptive and exteroceptive sensing systems",
+      "Analyze sensor characteristics and selection criteria",
+      "Implement sensor fusion for robust perception",
+      "Design sensor placement for optimal humanoid robot perception"
+    ]
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Actuators and Motors",
+    "permalink": "/Robotics-Book/docs/physical-fundamentals/actuators-motors"
+  },
+  "next": {
+    "title": "Power Systems and Energy Management",
+    "permalink": "/Robotics-Book/docs/physical-fundamentals/power-systems"
+  }
+}

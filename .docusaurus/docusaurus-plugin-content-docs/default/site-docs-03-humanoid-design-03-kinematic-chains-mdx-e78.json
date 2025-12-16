@@ -1,0 +1,79 @@
+{
+  "id": "humanoid-design/kinematic-chains",
+  "title": "Kinematic Chains and Joint Configurations",
+  "description": "Advanced analysis of kinematic chains, joint configurations, and their applications in humanoid robot design",
+  "source": "@site/docs/03-humanoid-design/03-kinematic-chains.mdx",
+  "sourceDirName": "03-humanoid-design",
+  "slug": "/humanoid-design/kinematic-chains",
+  "permalink": "/Robotics-Book/docs/humanoid-design/kinematic-chains",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/03-humanoid-design/03-kinematic-chains.mdx",
+  "tags": [
+    {
+      "inline": true,
+      "label": "kinematics",
+      "permalink": "/Robotics-Book/docs/tags/kinematics"
+    },
+    {
+      "inline": true,
+      "label": "robot-design",
+      "permalink": "/Robotics-Book/docs/tags/robot-design"
+    },
+    {
+      "inline": true,
+      "label": "humanoid-robotics",
+      "permalink": "/Robotics-Book/docs/tags/humanoid-robotics"
+    },
+    {
+      "inline": true,
+      "label": "joint-configuration",
+      "permalink": "/Robotics-Book/docs/tags/joint-configuration"
+    },
+    {
+      "inline": true,
+      "label": "kinematic-chains",
+      "permalink": "/Robotics-Book/docs/tags/kinematic-chains"
+    }
+  ],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "Kinematic Chains and Joint Configurations",
+    "sidebar_label": "Kinematic Chains & Joint Config",
+    "description": "Advanced analysis of kinematic chains, joint configurations, and their applications in humanoid robot design",
+    "hide_table_of_contents": false,
+    "authors": [
+      "Robotics Book Team"
+    ],
+    "tags": [
+      "kinematics",
+      "robot-design",
+      "humanoid-robotics",
+      "joint-configuration",
+      "kinematic-chains"
+    ],
+    "reading_time": 32,
+    "difficulty": "advanced",
+    "prerequisites": [
+      "02-degrees-freedom",
+      "01-anthropomorphic-design"
+    ],
+    "learning_objectives": [
+      "Master kinematic chain analysis for complex robotic systems",
+      "Apply Denavit-Hartenberg (D-H) parameter conventions",
+      "Design efficient joint configurations for humanoid robots",
+      "Analyze redundancy and task space optimization",
+      "Implement forward and inverse kinematics solutions"
+    ]
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Degrees of Freedom and Kinematic Chains",
+    "permalink": "/Robotics-Book/docs/humanoid-design/degrees-freedom"
+  },
+  "next": {
+    "title": "Balance & Gait Control",
+    "permalink": "/Robotics-Book/docs/humanoid-design/balance-gait"
+  }
+}

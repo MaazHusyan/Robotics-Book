@@ -1,0 +1,25 @@
+{
+  "id": "humanoid-design/hands-grippers",
+  "title": "Hands, Grippers, and Dexterous Manipulation",
+  "description": "Design principles and control strategies for robotic hands and grippers enabling dexterous manipulation",
+  "source": "@site/docs/03-humanoid-design/05-hands-grippers.mdx",
+  "sourceDirName": "03-humanoid-design",
+  "slug": "/humanoid-design/hands-grippers",
+  "permalink": "/Robotics-Book/docs/humanoid-design/hands-grippers",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/03-humanoid-design/05-hands-grippers.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "title": "Hands, Grippers, and Dexterous Manipulation",
+    "sidebar_label": "Hands & Grippers",
+    "description": "Design principles and control strategies for robotic hands and grippers enabling dexterous manipulation"
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Balance & Gait Control",
+    "permalink": "/Robotics-Book/docs/humanoid-design/balance-gait"
+  }
+}

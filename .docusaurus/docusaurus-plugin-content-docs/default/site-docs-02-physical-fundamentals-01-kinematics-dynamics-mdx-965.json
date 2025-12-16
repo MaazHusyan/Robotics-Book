@@ -1,0 +1,30 @@
+{
+  "id": "physical-fundamentals/kinematics-dynamics",
+  "title": "Kinematics and Dynamics",
+  "description": "Mathematical foundations of robot motion and force analysis",
+  "source": "@site/docs/02-physical-fundamentals/01-kinematics-dynamics.mdx",
+  "sourceDirName": "02-physical-fundamentals",
+  "slug": "/physical-fundamentals/kinematics-dynamics",
+  "permalink": "/Robotics-Book/docs/physical-fundamentals/kinematics-dynamics",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/02-physical-fundamentals/01-kinematics-dynamics.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Kinematics and Dynamics",
+    "sidebar_label": "Kinematics & Dynamics",
+    "description": "Mathematical foundations of robot motion and force analysis",
+    "hide_table_of_contents": false
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Book Overview",
+    "permalink": "/Robotics-Book/docs/introduction/book-overview"
+  },
+  "next": {
+    "title": "Actuators and Motors",
+    "permalink": "/Robotics-Book/docs/physical-fundamentals/actuators-motors"
+  }
+}

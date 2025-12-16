@@ -1,0 +1,27 @@
+{
+  "id": "humanoid-design/motion-planning-control",
+  "title": "Motion Planning and Control",
+  "description": "Motion planning is a critical aspect of humanoid robotics that enables robots to navigate complex environments and perform sophisticated tasks. This chapter explores the fundamental concepts and algorithms that allow humanoid robots to plan and execute movements safely and efficiently.",
+  "source": "@site/docs/03-humanoid-design/03-motion-planning-control.mdx",
+  "sourceDirName": "03-humanoid-design",
+  "slug": "/humanoid-design/motion-planning-control",
+  "permalink": "/Robotics-Book/docs/humanoid-design/motion-planning-control",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/03-humanoid-design/03-motion-planning-control.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Degrees of Freedom and Kinematic Chains",
+    "permalink": "/Robotics-Book/docs/humanoid-design/degrees-freedom"
+  },
+  "next": {
+    "title": "Balance & Gait Control",
+    "permalink": "/Robotics-Book/docs/humanoid-design/balance-gait"
+  }
+}

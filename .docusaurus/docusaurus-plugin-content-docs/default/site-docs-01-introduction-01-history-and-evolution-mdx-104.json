@@ -1,0 +1,26 @@
+{
+  "id": "introduction/history-and-evolution",
+  "title": "History and Evolution of Robotics",
+  "description": "Explore the fascinating journey of robotics from ancient automata to modern humanoid robots",
+  "source": "@site/docs/01-introduction/01-history-and-evolution.mdx",
+  "sourceDirName": "01-introduction",
+  "slug": "/introduction/history-and-evolution",
+  "permalink": "/Robotics-Book/docs/introduction/history-and-evolution",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/01-introduction/01-history-and-evolution.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "History and Evolution of Robotics",
+    "sidebar_label": "History & Evolution",
+    "description": "Explore the fascinating journey of robotics from ancient automata to modern humanoid robots",
+    "hide_table_of_contents": false
+  },
+  "sidebar": "bookSidebar",
+  "next": {
+    "title": "Types of Robots",
+    "permalink": "/Robotics-Book/docs/introduction/types-of-robots"
+  }
+}

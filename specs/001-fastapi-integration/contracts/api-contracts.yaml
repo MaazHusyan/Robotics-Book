@@ -1,0 +1,129 @@
+openapi: 3.0.0
+info:
+  title: Robotics Book API
+  version: 1.0.0
+  description: API for accessing robotics book content
+servers:
+  - url: http://localhost:8000
+    description: Development server
+  - url: https://api.robotics-book.com
+    description: Production server
+
+paths:
+  /:
+    get:
+      summary: API Root Endpoint
+      description: Returns API status information and available endpoints
+      responses:
+        '200':
+          description: Successful response with API status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "healthy"
+                  version:
+                    type: string
+                    example: "1.0.0"
+                  endpoints:
+                    type: array
+                    items:
+                      type: string
+                    example: ["/docs", "/health", "/book", "/book/content"]
+        '500':
+          description: Server error
+  /health:
+    get:
+      summary: Health Check Endpoint
+      description: Returns the current status of the API and its dependencies
+      responses:
+        '200':
+          description: Health status with service status and dependency health
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "healthy"
+                  timestamp:
+                    type: string
+                    format: date-time
+                  dependencies:
+                    type: object
+                    properties:
+                      database:
+                        type: string
+                        example: "connected"
+                      storage:
+                        type: string
+                        example: "available"
+        '500':
+          description: Server error or service unhealthy
+  /status:
+    get:
+      summary: Status Information
+      description: Returns version information and operational metrics
+      responses:
+        '200':
+          description: Status information with version and metrics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                    example: "1.0.0"
+                  uptime:
+                    type: string
+                    example: "2 hours"
+                  requests_processed:
+                    type: integer
+                    example: 1250
+                  environment:
+                    type: string
+                    example: "development"
+        '500':
+          description: Server error
+  /book/content:
+    get:
+      summary: Book Content Access
+      description: Returns book content in a structured format
+      parameters:
+        - name: chapter
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Specific chapter to retrieve
+        - name: section
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Specific section within a chapter
+      responses:
+        '200':
+          description: Book content in structured format
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: string
+                  chapter:
+                    type: string
+                  section:
+                    type: string
+                  metadata:
+                    type: object
+        '404':
+          description: Content not found
+        '500':
+          description: Server error

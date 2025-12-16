@@ -1,0 +1,73 @@
+{
+  "id": "physical-fundamentals/power-systems",
+  "title": "Power Systems and Energy Management",
+  "description": "Comprehensive guide to power systems for humanoid robots, covering batteries, power electronics, energy management, and thermal considerations",
+  "source": "@site/docs/02-physical-fundamentals/04-power-systems.mdx",
+  "sourceDirName": "02-physical-fundamentals",
+  "slug": "/physical-fundamentals/power-systems",
+  "permalink": "/Robotics-Book/docs/physical-fundamentals/power-systems",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/02-physical-fundamentals/04-power-systems.mdx",
+  "tags": [
+    {
+      "inline": true,
+      "label": "power-systems",
+      "permalink": "/Robotics-Book/docs/tags/power-systems"
+    },
+    {
+      "inline": true,
+      "label": "energy-management",
+      "permalink": "/Robotics-Book/docs/tags/energy-management"
+    },
+    {
+      "inline": true,
+      "label": "robotics",
+      "permalink": "/Robotics-Book/docs/tags/robotics"
+    },
+    {
+      "inline": true,
+      "label": "physical-fundamentals",
+      "permalink": "/Robotics-Book/docs/tags/physical-fundamentals"
+    }
+  ],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "Power Systems and Energy Management",
+    "sidebar_label": "Power Systems and Energy Management",
+    "description": "Comprehensive guide to power systems for humanoid robots, covering batteries, power electronics, energy management, and thermal considerations",
+    "hide_table_of_contents": false,
+    "authors": [
+      "Robotics Book Team"
+    ],
+    "tags": [
+      "power-systems",
+      "energy-management",
+      "robotics",
+      "physical-fundamentals"
+    ],
+    "reading_time": 22,
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "01-kinematics-dynamics",
+      "02-actuators-motors"
+    ],
+    "learning_objectives": [
+      "Understand power requirements for humanoid robots",
+      "Compare different battery technologies and their applications",
+      "Design power electronics for robotic systems",
+      "Implement energy management strategies",
+      "Analyze thermal management for power systems"
+    ]
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Sensors and Perception",
+    "permalink": "/Robotics-Book/docs/physical-fundamentals/sensors"
+  },
+  "next": {
+    "title": "Control Theory and Systems",
+    "permalink": "/Robotics-Book/docs/physical-fundamentals/control-theory"
+  }
+}

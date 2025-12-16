@@ -82,33 +82,32 @@
   Fill them out with the right functional requirements.
 -->
 
-### [REQUIREMENT_CATEGORY_1]
+### Educational Requirements
 
-- **[REQ-001]**: [Requirement description]
-- **[REQ-002]**: [Requirement description]
-- **[REQ-003]**: [Requirement description]
-- **[REQ-004]**: [Requirement description]
+- **ER-001**: Content MUST be accessible through chatbot interface to support practical application examples with code or real-world robotics case studies
+- **ER-002**: All theoretical concepts in the book MUST be retrievable through the chatbot to support practical application examples with code or real-world robotics case studies
+- **ER-003**: Chatbot responses MUST be validated by the book's content to ensure technical accuracy per constitution principle P1
+- **ER-004**: All mathematical formulations and code examples MUST be verified and validated per quality assurance requirements
+- **ER-005**: Chatbot responses MUST preserve the educational integrity and ethical considerations of the original robotics content per constitution principle P5
 
-### [REQUIREMENT_CATEGORY_2]
+*Example of marking unclear requirements:*
 
-- **[REQ-005]**: [Requirement description]
-- **[REQ-006]**: [Requirement description]
-- **[REQ-007]**: [Requirement description]
-- **[REQ-008]**: [Requirement description]
+- **ER-006**: Content must address [NEEDS CLARIFICATION: specific technical detail requires expert validation]
+- **ER-007**: Implementation example needs [NEEDS CLARIFICATION: real-world application context not specified]
 
-### [REQUIREMENT_CATEGORY_3]
+### Technical Requirements
 
-- **[REQ-009]**: [Requirement description]
-- **[REQ-010]**: [Requirement description]
-- **[REQ-011]**: [Requirement description]
-- **[REQ-012]**: [Requirement description]
+- **TR-001**: The system MUST use OpenAI Agents/ChatKit SDKs for conversation and reasoning capabilities
+- **TR-002**: The system MUST use FastAPI for building the API endpoints and web interface
+- **TR-003**: The system MUST use Neon Serverless Postgres for storing conversation history and metadata
+- **TR-004**: The system MUST use Qdrant Cloud Free Tier for vector storage and similarity search
+- **TR-005**: The embedding pipeline MUST convert book content into vector representations for semantic search
 
-### Quality Assurance Requirements
+### Ethical Requirements
 
-- **[QR-001]**: [Quality requirement description]
-- **[QR-002]**: [Quality requirement description]
-- **[QR-003]**: [Quality requirement description]
-- **[QR-004]**: [Quality requirement description]
+- **ETH-001**: Chatbot responses MUST preserve the educational integrity and ethical considerations of the original robotics content
+- **ETH-002**: The system MUST not generate responses that contradict or misrepresent the book's content
+- **ETH-003**: All user interactions and data must be handled securely with proper authentication and privacy controls
 
 ### Key Entities *(include if feature involves data)*
 

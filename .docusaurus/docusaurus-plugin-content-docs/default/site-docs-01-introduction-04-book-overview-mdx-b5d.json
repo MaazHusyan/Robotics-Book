@@ -1,0 +1,30 @@
+{
+  "id": "introduction/book-overview",
+  "title": "Book Overview and Learning Path",
+  "description": "Complete guide to navigating and learning from this comprehensive robotics book",
+  "source": "@site/docs/01-introduction/04-book-overview.mdx",
+  "sourceDirName": "01-introduction",
+  "slug": "/introduction/book-overview",
+  "permalink": "/Robotics-Book/docs/introduction/book-overview",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/01-introduction/04-book-overview.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "Book Overview and Learning Path",
+    "sidebar_label": "Book Overview",
+    "description": "Complete guide to navigating and learning from this comprehensive robotics book",
+    "hide_table_of_contents": false
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Why Humanoid Robotics",
+    "permalink": "/Robotics-Book/docs/introduction/why-humanoid-robotics"
+  },
+  "next": {
+    "title": "Kinematics & Dynamics",
+    "permalink": "/Robotics-Book/docs/physical-fundamentals/kinematics-dynamics"
+  }
+}

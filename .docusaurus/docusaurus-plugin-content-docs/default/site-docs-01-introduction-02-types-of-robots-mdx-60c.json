@@ -1,0 +1,30 @@
+{
+  "id": "introduction/types-of-robots",
+  "title": "Types of Robots",
+  "description": "Comprehensive overview of robot classifications and applications across industries",
+  "source": "@site/docs/01-introduction/02-types-of-robots.mdx",
+  "sourceDirName": "01-introduction",
+  "slug": "/introduction/types-of-robots",
+  "permalink": "/Robotics-Book/docs/introduction/types-of-robots",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/01-introduction/02-types-of-robots.mdx",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "title": "Types of Robots",
+    "sidebar_label": "Types of Robots",
+    "description": "Comprehensive overview of robot classifications and applications across industries",
+    "hide_table_of_contents": false
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "History & Evolution",
+    "permalink": "/Robotics-Book/docs/introduction/history-and-evolution"
+  },
+  "next": {
+    "title": "Why Humanoid Robotics",
+    "permalink": "/Robotics-Book/docs/introduction/why-humanoid-robotics"
+  }
+}

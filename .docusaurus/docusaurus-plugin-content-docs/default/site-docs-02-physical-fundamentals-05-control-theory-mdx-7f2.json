@@ -1,0 +1,74 @@
+{
+  "id": "physical-fundamentals/control-theory",
+  "title": "Control Theory and Systems",
+  "description": "Comprehensive guide to control theory for humanoid robots, covering classical control, modern control, and advanced control strategies",
+  "source": "@site/docs/02-physical-fundamentals/05-control-theory.mdx",
+  "sourceDirName": "02-physical-fundamentals",
+  "slug": "/physical-fundamentals/control-theory",
+  "permalink": "/Robotics-Book/docs/physical-fundamentals/control-theory",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/02-physical-fundamentals/05-control-theory.mdx",
+  "tags": [
+    {
+      "inline": true,
+      "label": "control-theory",
+      "permalink": "/Robotics-Book/docs/tags/control-theory"
+    },
+    {
+      "inline": true,
+      "label": "robotics",
+      "permalink": "/Robotics-Book/docs/tags/robotics"
+    },
+    {
+      "inline": true,
+      "label": "feedback-systems",
+      "permalink": "/Robotics-Book/docs/tags/feedback-systems"
+    },
+    {
+      "inline": true,
+      "label": "physical-fundamentals",
+      "permalink": "/Robotics-Book/docs/tags/physical-fundamentals"
+    }
+  ],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "title": "Control Theory and Systems",
+    "sidebar_label": "Control Theory and Systems",
+    "description": "Comprehensive guide to control theory for humanoid robots, covering classical control, modern control, and advanced control strategies",
+    "hide_table_of_contents": false,
+    "authors": [
+      "Robotics Book Team"
+    ],
+    "tags": [
+      "control-theory",
+      "robotics",
+      "feedback-systems",
+      "physical-fundamentals"
+    ],
+    "reading_time": 28,
+    "difficulty": "advanced",
+    "prerequisites": [
+      "01-kinematics-dynamics",
+      "02-actuators-motors",
+      "03-sensors"
+    ],
+    "learning_objectives": [
+      "Understand fundamental control theory concepts for robotics",
+      "Design and implement PID controllers for robot joints",
+      "Apply state-space methods for multi-variable control",
+      "Implement adaptive and robust control strategies",
+      "Analyze control system stability and performance"
+    ]
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Power Systems and Energy Management",
+    "permalink": "/Robotics-Book/docs/physical-fundamentals/power-systems"
+  },
+  "next": {
+    "title": "Anthropomorphic Design Principles",
+    "permalink": "/Robotics-Book/docs/humanoid-design/anthropomorphic-design"
+  }
+}

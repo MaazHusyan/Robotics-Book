@@ -1,0 +1,73 @@
+{
+  "id": "humanoid-design/anthropomorphic-design",
+  "title": "Anthropomorphic Design Principles",
+  "description": "Comprehensive guide to anthropomorphic design principles for humanoid robots, covering human-inspired design, biomechanics, and functional considerations",
+  "source": "@site/docs/03-humanoid-design/01-anthropomorphic-design.mdx",
+  "sourceDirName": "03-humanoid-design",
+  "slug": "/humanoid-design/anthropomorphic-design",
+  "permalink": "/Robotics-Book/docs/humanoid-design/anthropomorphic-design",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/MaazHusyan/Robotics-Book/tree/main/docs/03-humanoid-design/01-anthropomorphic-design.mdx",
+  "tags": [
+    {
+      "inline": true,
+      "label": "anthropomorphic-design",
+      "permalink": "/Robotics-Book/docs/tags/anthropomorphic-design"
+    },
+    {
+      "inline": true,
+      "label": "humanoid-robotics",
+      "permalink": "/Robotics-Book/docs/tags/humanoid-robotics"
+    },
+    {
+      "inline": true,
+      "label": "biomechanics",
+      "permalink": "/Robotics-Book/docs/tags/biomechanics"
+    },
+    {
+      "inline": true,
+      "label": "robot-design",
+      "permalink": "/Robotics-Book/docs/tags/robot-design"
+    }
+  ],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Anthropomorphic Design Principles",
+    "sidebar_label": "Anthropomorphic Design Principles",
+    "description": "Comprehensive guide to anthropomorphic design principles for humanoid robots, covering human-inspired design, biomechanics, and functional considerations",
+    "hide_table_of_contents": false,
+    "authors": [
+      "Robotics Book Team"
+    ],
+    "tags": [
+      "anthropomorphic-design",
+      "humanoid-robotics",
+      "biomechanics",
+      "robot-design"
+    ],
+    "reading_time": 24,
+    "difficulty": "intermediate",
+    "prerequisites": [
+      "01-kinematics-dynamics",
+      "02-physical-fundamentals"
+    ],
+    "learning_objectives": [
+      "Understand anthropomorphic design principles and their importance",
+      "Analyze human biomechanics for robot design inspiration",
+      "Apply scaling laws and dimensional analysis to robot design",
+      "Design human-like joint configurations and ranges of motion",
+      "Balance functional requirements with anthropomorphic constraints"
+    ]
+  },
+  "sidebar": "bookSidebar",
+  "previous": {
+    "title": "Control Theory and Systems",
+    "permalink": "/Robotics-Book/docs/physical-fundamentals/control-theory"
+  },
+  "next": {
+    "title": "Degrees of Freedom and Kinematic Chains",
+    "permalink": "/Robotics-Book/docs/humanoid-design/degrees-freedom"
+  }
+}

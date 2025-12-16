@@ -1,0 +1,102 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/Robotics-Book/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/Robotics-Book/docs",
+          "mainDocId": "introduction/history-and-evolution",
+          "docs": [
+            {
+              "id": "humanoid-design/anthropomorphic-design",
+              "path": "/Robotics-Book/docs/humanoid-design/anthropomorphic-design",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "humanoid-design/balance-gait",
+              "path": "/Robotics-Book/docs/humanoid-design/balance-gait",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "humanoid-design/degrees-freedom",
+              "path": "/Robotics-Book/docs/humanoid-design/degrees-freedom",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "humanoid-design/hands-grippers",
+              "path": "/Robotics-Book/docs/humanoid-design/hands-grippers",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "humanoid-design/kinematic-chains",
+              "path": "/Robotics-Book/docs/humanoid-design/kinematic-chains",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/Robotics-Book/docs/intro"
+            },
+            {
+              "id": "introduction/book-overview",
+              "path": "/Robotics-Book/docs/introduction/book-overview",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "introduction/history-and-evolution",
+              "path": "/Robotics-Book/docs/introduction/history-and-evolution",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "introduction/types-of-robots",
+              "path": "/Robotics-Book/docs/introduction/types-of-robots",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "introduction/why-humanoid-robotics",
+              "path": "/Robotics-Book/docs/introduction/why-humanoid-robotics",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "physical-fundamentals/actuators-motors",
+              "path": "/Robotics-Book/docs/physical-fundamentals/actuators-motors",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "physical-fundamentals/control-theory",
+              "path": "/Robotics-Book/docs/physical-fundamentals/control-theory",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "physical-fundamentals/kinematics-dynamics",
+              "path": "/Robotics-Book/docs/physical-fundamentals/kinematics-dynamics",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "physical-fundamentals/power-systems",
+              "path": "/Robotics-Book/docs/physical-fundamentals/power-systems",
+              "sidebar": "bookSidebar"
+            },
+            {
+              "id": "physical-fundamentals/sensors",
+              "path": "/Robotics-Book/docs/physical-fundamentals/sensors",
+              "sidebar": "bookSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "bookSidebar": {
+              "link": {
+                "path": "/Robotics-Book/docs/introduction/history-and-evolution",
+                "label": "introduction/history-and-evolution"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}
