@@ -1,77 +1,55 @@
-# Robotics Book Constitution
+# [PROJECT_NAME] Constitution
+<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
 
 ## Core Principles
 
-### P1: Primacy of Human Knowledge
-The accumulation and transmission of human knowledge, scientific principles, and technical expertise represents the most valuable asset for advancing robotics. All AI assistance must complement, not replace, human expertise and validation.
+### [PRINCIPLE_1_NAME]
+<!-- Example: I. Library-First -->
+[PRINCIPLE_1_DESCRIPTION]
+<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
 
-### P2: Progressive Complexity
-Robotics knowledge should be structured from fundamental principles to advanced applications, enabling learners to build understanding incrementally while maintaining clarity at each level.
+### [PRINCIPLE_2_NAME]
+<!-- Example: II. CLI Interface -->
+[PRINCIPLE_2_DESCRIPTION]
+<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
 
-### P3: Practical Application
-Theory must be consistently connected to real-world implementation, with code examples, case studies, and hands-on projects that demonstrate practical value.
+### [PRINCIPLE_3_NAME]
+<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
+[PRINCIPLE_3_DESCRIPTION]
+<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
 
-### P4: Ethical Development
-All robotics development must consider safety, accessibility, and societal impact, ensuring that technological advancement benefits all humanity.
+### [PRINCIPLE_4_NAME]
+<!-- Example: IV. Integration Testing -->
+[PRINCIPLE_4_DESCRIPTION]
+<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
 
-### P5: Continuous Improvement
-Documentation and implementations must be regularly updated to reflect the latest research, industry practices, and community feedback.
+### [PRINCIPLE_5_NAME]
+<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
+[PRINCIPLE_5_DESCRIPTION]
+<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
 
-## Content Standards
+### [PRINCIPLE_6_NAME]
 
-### Technical Stack Requirements
-- Platform: Docusaurus framework for static site generation
-- Deployment: GitHub Pages for documentation hosting
-- Version Control: Git for version control and collaboration
-- Code Examples: Python, JavaScript, and TypeScript with proper syntax highlighting
-- Additional Tools: Mathematical notation with LaTeX support, visual diagram generation tools
 
-### Writing Style Guidelines
-- Tone: Professional, educational, and accessible
-- Content Length: Comprehensive coverage with clear structure
-- Code Integration: Practical examples with testing and implementation guidance
-- Citation Format: Academic and industry standard referencing
-- Language: English with international accessibility considerations
+[PRINCIPLE__DESCRIPTION]
 
-### Quality Assurance Requirements
-- Technical Accuracy: All mathematical formulations verified and validated
-- Content Completeness: Comprehensive coverage of robotics topics
-- Educational Value: Clear learning objectives and practical applications
-- Cross-Platform Compatibility: Mobile and desktop browser support
+## [SECTION_2_NAME]
+<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
 
-### Development Guidelines
+[SECTION_2_CONTENT]
+<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
 
-### AI Usage Policy
-AI assistance should augment human expertise, maintain technical accuracy, and provide educational value while preserving human-authored content integrity.
+## [SECTION_3_NAME]
+<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
 
-### Review Process
-- Initial Draft: Content creation and technical validation
-- Technical Review: Expert validation of mathematical and engineering content
-- User Testing: Accessibility and educational effectiveness verification
-- Integration Review: Cross-component and cross-platform compatibility
+[SECTION_3_CONTENT]
+<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
 
-### Success Metrics
-- Content Quality: 100% topic coverage with validated technical content
-- User Experience: Mobile-responsive design with accessible navigation
-- Technical Excellence: All code examples functional and properly tested
-- Educational Impact: Progressive learning structure with practical applications
+## Governance
+<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-### Governance
+[GOVERNANCE_RULES]
+<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
 
-### Authority Structure
-Technical experts provide domain authority for robotics content, with AI assistance serving as augmentation rather than replacement.
-
-### Amendment Process
-Minor updates through pull requests, major changes through formal review and consensus building.
-
-### Compliance Requirements
-Open source licensing with appropriate attribution, accessibility standards compliance, and educational quality benchmarks.
-
-### Versioning Policy
-Semantic versioning with clear changelog documentation and backward compatibility considerations.
-
-## Reset Context
-
-This constitution establishes foundational principles for the Robotics Book project reset. All previous planning and implementation artifacts have been archived, creating a clean foundation for future development work.
-
-**Version**: 2.0.0 | **Established**: 2025-12-16 | **Status**: Active
+**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
+<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->

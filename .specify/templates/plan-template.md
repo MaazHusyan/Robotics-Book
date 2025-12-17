@@ -31,20 +31,7 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-### [PRINCIPLE_1_NAME] Compliance
-- [ ] [Compliance check 1 for principle 1]
-- [ ] [Compliance check 2 for principle 1]
-- [ ] [Compliance check 3 for principle 1]
-
-### [PRINCIPLE_2_NAME] Compliance
-- [ ] [Compliance check 1 for principle 2]
-- [ ] [Compliance check 2 for principle 2]
-- [ ] [Compliance check 3 for principle 2]
-
-### [PRINCIPLE_3_NAME] Compliance
-- [ ] [Compliance check 1 for principle 3]
-- [ ] [Compliance check 2 for principle 3]
-- [ ] [Compliance check 3 for principle 3]
+[Gates determined based on constitution file]
 
 ## Project Structure
 
