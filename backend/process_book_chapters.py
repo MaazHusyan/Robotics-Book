@@ -19,7 +19,7 @@ sys.path.insert(0, str(backend_src_path))
 from dotenv import load_dotenv
 load_dotenv()
 
-from src.embedding.services.cohere_service import CohereEmbeddingService
+from src.embedding.services.embedding_service_factory import EmbeddingServiceFactory
 from src.embedding.models.content_models import ContentChunk
 from src.utils.qdrant_storage import QdrantEmbeddingStorage
 
@@ -380,10 +380,10 @@ def process_specific_chapters():
     print("Target collection: Book_Chapters_embadding")
     print()
 
-    # Initialize the service with Qdrant storage specifically for book chapters
-    service = CohereEmbeddingService(storage_type="qdrant", collection_name="Book_Chapters_embadding")
+    # Initialize the service using the factory with Qdrant storage specifically for book chapters
+    service = EmbeddingServiceFactory.create_embedding_service(storage_type="qdrant", collection_name="Book_Chapters_embadding")
 
-    print(f"📦 Using Cohere model: {service.config.model}")
+    print(f"📦 Using embedding model: {service.config.model}")
     print(f"💾 Storing in Qdrant collection: Book_Chapters_embadding")
     print()
 

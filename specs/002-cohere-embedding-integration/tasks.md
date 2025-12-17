@@ -61,7 +61,7 @@ Can be fully tested by processing book content through the embedding pipeline an
 - [X] T024 [P] [US1] Add token counting and content validation before embedding
 - [X] T025 [US1] Create test for single content chunk embedding in backend/tests/test_embedding_single.py
 - [X] T026 [US1] Verify embedding vectors have correct dimensionality and format
-- [X] T027 [US1] Implement embedding storage mechanism (temporary file-based)
+- [X] T027 [US1] Implement embedding storage mechanism with proper metadata transfer (source_file and source_location)
 
 ## Phase 4: User Story 2 - Embedding Quality Validation (Priority: P2)
 
@@ -101,6 +101,7 @@ Can be tested by processing a large set of content chunks and verifying that the
 ### Goal
 Integrate embedding functionality with the existing API and add final polish
 
+- [X] T048 Fix metadata transfer issue to ensure source_file and source_location are properly stored in embedding vectors
 - [ ] T050 Create backend/src/embedding/api/embedding_endpoint.py with API endpoints
 - [ ] T051 Implement generate embeddings endpoint with proper request/response models
 - [ ] T052 [P] Create get embedding job status endpoint

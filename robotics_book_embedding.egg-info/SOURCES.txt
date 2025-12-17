@@ -1,0 +1,7 @@
+README.md
+setup.py
+robotics_book_embedding.egg-info/PKG-INFO
+robotics_book_embedding.egg-info/SOURCES.txt
+robotics_book_embedding.egg-info/dependency_links.txt
+robotics_book_embedding.egg-info/requires.txt
+robotics_book_embedding.egg-info/top_level.txt

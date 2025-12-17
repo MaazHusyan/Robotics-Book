@@ -27,18 +27,18 @@ os.chdir(original_cwd)
 # Now add the backend/src to path again after changing back to original directory
 sys.path.insert(0, os.path.join(backend_path, 'src'))
 
-from backend.src.embedding.services.cohere_service import CohereEmbeddingService
+from backend.src.embedding.services.embedding_service_factory import EmbeddingServiceFactory
 from backend.src.embedding.models.content_models import ContentChunk
 
 def process_robotics_book_content():
     """
     Process robotics book content and send embeddings to Qdrant
     """
-    # Initialize the service (this will use Qdrant by default)
-    service = CohereEmbeddingService()
+    # Initialize the service using the factory (this will use Qdrant by default)
+    service = EmbeddingServiceFactory.create_embedding_service()
 
     print("🚀 Starting embedding process...")
-    print(f"📦 Using Cohere model: {service.config.model}")
+    print(f"📦 Using embedding model: {service.config.model}")
     print(f"💾 Storing in Qdrant collection: robotics_embeddings")
 
     # Example: Create content chunks from your book
@@ -111,7 +111,7 @@ def process_content_batch():
     """
     Process multiple content chunks in a batch (more efficient)
     """
-    service = CohereEmbeddingService()
+    service = EmbeddingServiceFactory.create_embedding_service()
 
     # Create multiple content chunks
     chunks = []

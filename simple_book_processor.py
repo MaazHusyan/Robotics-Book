@@ -16,7 +16,7 @@ sys.path.insert(0, str(project_root / 'backend' / 'src'))
 from dotenv import load_dotenv
 load_dotenv()
 
-from backend.src.embedding.services.cohere_service import CohereEmbeddingService
+from backend.src.embedding.services.embedding_service_factory import EmbeddingServiceFactory
 from backend.src.embedding.models.content_models import ContentChunk
 
 
@@ -50,9 +50,9 @@ def process_book_chapters():
     print()
 
     # Initialize the service
-    service = CohereEmbeddingService(storage_type="qdrant", collection_name="Book_Chapters_embadding")
+    service = EmbeddingServiceFactory.create_embedding_service(storage_type="qdrant", collection_name="Book_Chapters_embadding")
 
-    print(f"📦 Using Cohere model: {service.config.model}")
+    print(f"📦 Using embedding model: {service.config.model}")
     print(f"💾 Storing in Qdrant collection: Book_Chapters_embadding")
     print()
 

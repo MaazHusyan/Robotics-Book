@@ -17,18 +17,18 @@ load_dotenv()
 # Add src to path again to make imports work properly
 sys.path.insert(0, src_path)
 
-from src.embedding.services.cohere_service import CohereEmbeddingService
+from src.embedding.services.embedding_service_factory import EmbeddingServiceFactory
 from src.embedding.models.content_models import ContentChunk
 
 def process_robotics_book_content():
     """
     Process robotics book content and send embeddings to Qdrant
     """
-    # Initialize the service (this will use Qdrant by default)
-    service = CohereEmbeddingService()
+    # Initialize the service using the factory (this will use Qdrant by default)
+    service = EmbeddingServiceFactory.create_embedding_service()
 
     print("🚀 Starting embedding process...")
-    print(f"📦 Using Cohere model: {service.config.model}")
+    print(f"📦 Using embedding model: {service.config.model}")
     print(f"💾 Storing in Qdrant collection: robotics_embeddings")
 
     # Example: Create content chunks from your book
@@ -101,7 +101,7 @@ def process_content_batch():
     """
     Process multiple content chunks in a batch (more efficient)
     """
-    service = CohereEmbeddingService()
+    service = EmbeddingServiceFactory.create_embedding_service()
 
     # Create multiple content chunks
     chunks = []

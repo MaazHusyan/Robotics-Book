@@ -1,5 +1,5 @@
 import asyncio
-import cohere
+import requests
 from typing import List, Optional
 import sys
 import os
@@ -23,14 +23,14 @@ from src.utils.qdrant_storage import QdrantEmbeddingStorage
 from src.embedding.services.embedding_service_interface import EmbeddingServiceInterface
 
 
-class CohereEmbeddingService(EmbeddingServiceInterface):
+class JinaEmbeddingService(EmbeddingServiceInterface):
     """
-    Service for generating embeddings using Cohere's API.
+    Service for generating embeddings using Jina AI's API.
     """
 
     def __init__(self, config: Optional[EmbeddingConfig] = None, storage_type: str = "qdrant", storage_dir: str = "embeddings_storage", collection_name: str = "robotics_embeddings"):
         """
-        Initialize the Cohere embedding service.
+        Initialize the Jina embedding service.
 
         Args:
             config: Embedding configuration (uses defaults if not provided)
@@ -39,12 +39,12 @@ class CohereEmbeddingService(EmbeddingServiceInterface):
             collection_name: Name of the Qdrant collection (for Qdrant storage)
         """
         self.config = config or EmbeddingConfig()
-        self.api_key = getattr(settings, 'COHERE_API_KEY', None)
+        self.api_key = getattr(settings, 'JINA_API_KEY', None)
 
         if not self.api_key:
-            raise ValueError("COHERE_API_KEY environment variable is required")
+            raise ValueError("JINA_API_KEY environment variable is required")
 
-        self.client = cohere.Client(self.api_key)
+        self.base_url = "https://api.jina.ai/v1"
         self.rate_limiter = CohereRateLimiter(
             max_requests=self.config.rate_limit_requests,
             time_window_seconds=self.config.rate_limit_seconds
@@ -68,24 +68,36 @@ class CohereEmbeddingService(EmbeddingServiceInterface):
             EmbeddingVector containing the generated embedding
         """
         # Validate input length
-        if len(text) > 10000:  # Rough check for token count
-            raise ContentTooLongError(len(text), 4000)
+        if len(text) > 8192:  # Jina AI has an 8192 character limit
+            raise ContentTooLongError(len(text), 8192)
 
         # Wait for rate limit if needed
         self.rate_limiter.wait_if_needed()
 
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+
+        payload = {
+            "model": model or self.config.model,
+            "input": [text],
+            "task": "retrieval.query"  # Using retrieval.query for search_document equivalent
+        }
+
         try:
-            response = self.client.embed(
-                texts=[text],
-                model=model or self.config.model,
-                input_type=self.config.input_type,
-                truncate=self.config.truncate
-            )
+            response = requests.post(f"{self.base_url}/embeddings", headers=headers, json=payload)
 
-            if not response.embeddings or len(response.embeddings) == 0:
-                raise EmbeddingGenerationError("No embeddings returned from Cohere API")
+            if response.status_code != 200:
+                raise EmbeddingGenerationError(f"Jina API error: {response.status_code} - {response.text}")
 
-            embedding_vector = response.embeddings[0]
+            result = response.json()
+
+            if not result.get("data") or len(result["data"]) == 0:
+                raise EmbeddingGenerationError("No embeddings returned from Jina API")
+
+            embedding_data = result["data"][0]
+            embedding_vector = embedding_data["embedding"]
             dimensionality = len(embedding_vector)
 
             return EmbeddingVector(
@@ -94,23 +106,11 @@ class CohereEmbeddingService(EmbeddingServiceInterface):
                 model=model or self.config.model,
                 dimensionality=dimensionality
             )
-        except cohere.errors.BadRequestError as e:
-            raise CohereAPIError(f"Bad Request Error from Cohere API: {str(e)}", 400)
-        except cohere.errors.UnauthorizedError as e:
-            raise CohereAPIError(f"Unauthorized Error from Cohere API: {str(e)}", 401)
-        except cohere.errors.ForbiddenError as e:
-            raise CohereAPIError(f"Forbidden Error from Cohere API: {str(e)}", 403)
-        except cohere.errors.TooManyRequestsError as e:
-            raise CohereAPIError(f"Rate Limit Error from Cohere API: {str(e)}", 429)
-        except cohere.errors.InternalServerError as e:
-            raise CohereAPIError(f"Internal Server Error from Cohere API: {str(e)}", 500)
-        except cohere.errors.ServiceUnavailableError as e:
-            raise CohereAPIError(f"Service Unavailable Error from Cohere API: {str(e)}", 503)
+        except requests.exceptions.RequestException as e:
+            raise EmbeddingGenerationError(f"Network error during Jina API call: {str(e)}")
+        except KeyError as e:
+            raise EmbeddingGenerationError(f"Missing expected field in Jina API response: {str(e)}")
         except Exception as e:
-            # Re-raise EmbeddingGenerationError to preserve explicit errors
-            if isinstance(e, EmbeddingGenerationError):
-                raise
-            # Catch other general exceptions
             raise EmbeddingGenerationError(f"Failed to generate embedding: {str(e)}")
 
     def generate_embeddings_batch(self, texts: List[str], model: Optional[str] = None) -> List[EmbeddingVector]:
@@ -129,25 +129,37 @@ class CohereEmbeddingService(EmbeddingServiceInterface):
 
         # Validate input lengths
         for i, text in enumerate(texts):
-            if len(text) > 10000:  # Rough check for token count
-                raise ContentTooLongError(len(text), 4000)
+            if len(text) > 8192:  # Jina AI has an 8192 character limit
+                raise ContentTooLongError(len(text), 8192)
 
         # Wait for rate limit if needed
         self.rate_limiter.wait_if_needed()
 
-        try:
-            response = self.client.embed(
-                texts=texts,
-                model=model or self.config.model,
-                input_type=self.config.input_type,
-                truncate=self.config.truncate
-            )
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
 
-            if not response.embeddings or len(response.embeddings) != len(texts):
+        payload = {
+            "model": model or self.config.model,
+            "input": texts,
+            "task": "retrieval.document"  # Using retrieval.document for search_document equivalent
+        }
+
+        try:
+            response = requests.post(f"{self.base_url}/embeddings", headers=headers, json=payload)
+
+            if response.status_code != 200:
+                raise EmbeddingGenerationError(f"Jina API error: {response.status_code} - {response.text}")
+
+            result = response.json()
+
+            if not result.get("data") or len(result["data"]) != len(texts):
                 raise EmbeddingGenerationError("Mismatch between input texts and returned embeddings")
 
             embedding_vectors = []
-            for i, embedding in enumerate(response.embeddings):
+            for i, embedding_data in enumerate(result["data"]):
+                embedding = embedding_data["embedding"]
                 dimensionality = len(embedding)
                 embedding_vector = EmbeddingVector(
                     chunk_id="",  # Will be set by the caller
@@ -158,23 +170,11 @@ class CohereEmbeddingService(EmbeddingServiceInterface):
                 embedding_vectors.append(embedding_vector)
 
             return embedding_vectors
-        except cohere.errors.BadRequestError as e:
-            raise CohereAPIError(f"Bad Request Error from Cohere API: {str(e)}", 400)
-        except cohere.errors.UnauthorizedError as e:
-            raise CohereAPIError(f"Unauthorized Error from Cohere API: {str(e)}", 401)
-        except cohere.errors.ForbiddenError as e:
-            raise CohereAPIError(f"Forbidden Error from Cohere API: {str(e)}", 403)
-        except cohere.errors.TooManyRequestsError as e:
-            raise CohereAPIError(f"Rate Limit Error from Cohere API: {str(e)}", 429)
-        except cohere.errors.InternalServerError as e:
-            raise CohereAPIError(f"Internal Server Error from Cohere API: {str(e)}", 500)
-        except cohere.errors.ServiceUnavailableError as e:
-            raise CohereAPIError(f"Service Unavailable Error from Cohere API: {str(e)}", 503)
+        except requests.exceptions.RequestException as e:
+            raise EmbeddingGenerationError(f"Network error during Jina API call: {str(e)}")
+        except KeyError as e:
+            raise EmbeddingGenerationError(f"Missing expected field in Jina API response: {str(e)}")
         except Exception as e:
-            # Re-raise EmbeddingGenerationError to preserve explicit errors
-            if isinstance(e, EmbeddingGenerationError):
-                raise
-            # Catch other general exceptions
             raise EmbeddingGenerationError(f"Failed to generate embeddings: {str(e)}")
 
     def process_content_chunk(self, chunk: ContentChunk, model: Optional[str] = None) -> EmbeddingVector:

@@ -1,0 +1,6 @@
+python-dotenv
+cohere
+qdrant-client
+pydantic
+pydantic-settings
+requests
