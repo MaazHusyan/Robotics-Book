@@ -22,3 +22,11 @@ embeddings_storage/
 .idea/
 node_modules
 
+# Editor junk
+*.swp
+*.swo
+..gitignore.swp
+
+# Docusaurus
+.docusaurus/
+build/
