@@ -46,13 +46,10 @@ class QdrantRetriever:
         """
         try:
             # First, we need to embed the query text using the same model used for the stored content
-            # For now, we'll use a placeholder embedding - in a real implementation,
-            # we'd need to call the embedding service to get the query vector
-            from src.embedding.services.embedding_service_factory import EmbeddingServiceFactory
+            # Use the embedding utility adapted from rag_agent.py reference file
+            from src.utils.embedding_utils import get_embedding
 
-            embedding_service = EmbeddingServiceFactory.create_embedding_service()
-            query_embedding_result = await embedding_service.generate_embedding(query_text)
-            query_embedding = query_embedding_result.vector if hasattr(query_embedding_result, 'vector') else query_embedding_result
+            query_embedding = get_embedding(query_text)
 
             # Build the search filter
             search_filter = self._build_filter(filters)

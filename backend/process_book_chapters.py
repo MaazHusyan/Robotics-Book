@@ -2,7 +2,7 @@
 """
 Script to process specific book chapters and store embeddings in Qdrant
 Chapter directories: @docs/01-introduction/, @docs/02-physical-fundamentals/, @docs/03-humanoid-design/
-Collection name: Book_Chapters_embadding
+Collection name: My_Book_Embadding
 """
 import os
 import sys
@@ -369,7 +369,7 @@ def read_book_content_from_markdown(file_path):
 
 def process_specific_chapters():
     """
-    Process the specific book chapters and store in Book_Chapters_embadding collection
+    Process the specific book chapters and store in My_Book_Embadding collection
     """
     print("🤖 Processing Specific Book Chapters for Qdrant Storage")
     print("=" * 60)
@@ -377,14 +377,14 @@ def process_specific_chapters():
     print("  - @docs/01-introduction/")
     print("  - @docs/02-physical-fundamentals/")
     print("  - @docs/03-humanoid-design/")
-    print("Target collection: Book_Chapters_embadding")
+    print("Target collection: My_Book_Embadding")
     print()
 
     # Initialize the service using the factory with Qdrant storage specifically for book chapters
-    service = EmbeddingServiceFactory.create_embedding_service(storage_type="qdrant", collection_name="Book_Chapters_embadding")
+    service = EmbeddingServiceFactory.create_embedding_service(storage_type="qdrant", collection_name="My_Book_Embadding")
 
     print(f"📦 Using embedding model: {service.config.model}")
-    print(f"💾 Storing in Qdrant collection: Book_Chapters_embadding")
+    print(f"💾 Storing in Qdrant collection: My_Book_Embadding")
     print()
 
     # Define the chapter directories to process
@@ -460,7 +460,7 @@ def process_specific_chapters():
     print()
     print("🎉 Chapter embedding process completed!")
     print(f"📊 Total chunks processed and stored in Qdrant: {total_chunks_processed}")
-    print(f"🎯 Collection: Book_Chapters_embadding")
+    print(f"🎯 Collection: My_Book_Embadding")
     print()
     print("💡 The embeddings are now ready for semantic search and retrieval!")
     print("   Your chatbot can now answer questions grounded in these specific chapters.")

@@ -212,6 +212,10 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 ## Active Technologies
 - Python 3.13 + FastAPI, Qdrant, Jina AI embeddings, Cohere embeddings (003-rag-retrieval-function)
 - Qdrant vector database for embeddings, with fallback to file-based storage (003-rag-retrieval-function)
+- Python 3.13 + FastAPI, Qdrant client, Jina AI embeddings, Cohere embeddings, OpenRouter API (004-rag-chatbot-integration)
+- Qdrant vector database for embeddings, with potential fallback to file-based storage (004-rag-chatbot-integration)
+- Python 3.13 + FastAPI, agents framework, Qdrant client, sentence-transformers, OpenRouter API (004-rag-chatbot-integration)
+- Qdrant vector database for embeddings, with SQLite for conversation session storage (004-rag-chatbot-integration)
 
 ## Recent Changes
 - 003-rag-retrieval-function: Added Python 3.13 + FastAPI, Qdrant, Jina AI embeddings, Cohere embeddings

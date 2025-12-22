@@ -1,41 +1,86 @@
+"""
+Main FastAPI application for the RAG Chatbot
+"""
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from starlette.middleware.base import BaseHTTPMiddleware
-from src.config import settings
-from src.api.root_endpoint import router as root_router
-from src.api.book_content_endpoint import router as book_content_router
-from src.api.health_endpoint import router as health_router
-from src.api.status_endpoint import router as status_router
-from src.utils.middleware import RequestLoggingMiddleware
+import logging
+import sys
+from contextlib import asynccontextmanager
 
+from src.retrieval.api.retrieval_endpoint import router as retrieval_router
+from src.api.agent_endpoint import router as agent_router
+# Remove the settings import as it's not needed for this implementation
+
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+logger = logging.getLogger(__name__)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    Lifespan event handler for application startup and shutdown
+    """
+    logger.info("Starting RAG Chatbot application...")
+    # Startup logic here
+    yield
+    # Shutdown logic here
+    logger.info("Shutting down RAG Chatbot application...")
+
+
+# Create FastAPI app instance
 app = FastAPI(
-    title="Robotics Book API",
-    description="API for accessing robotics book content",
-    version="0.1.0"
+    title="RAG Chatbot API",
+    description="API for Retrieval-Augmented Generation chatbot that answers questions from robotics book content",
+    version="1.0.0",
+    lifespan=lifespan
 )
 
-# Add request logging middleware
-app.add_middleware(RequestLoggingMiddleware)
 
-# Add CORS middleware using configuration values
+# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.allowed_origins_list,
-    allow_credentials=settings.cors_allow_credentials,
-    allow_methods=settings.cors_allow_methods,
-    allow_headers=settings.cors_allow_headers,
+    allow_origins=["*"],  # In production, replace with specific origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
-# Include API routers
-app.include_router(root_router)
-app.include_router(book_content_router, prefix="/api/v1")
-app.include_router(health_router, prefix="/api/v1")
-app.include_router(status_router, prefix="/api/v1")
+
+# Include retrieval API routes
+app.include_router(retrieval_router)
+# Include agent API routes
+app.include_router(agent_router)
+
 
 @app.get("/")
-def read_root():
-    return {"message": "Welcome to the Robotics Book API", "status": "running", "version": "0.1.0"}
+async def root():
+    """
+    Root endpoint for health check
+    """
+    return {"message": "RAG Chatbot API is running", "status": "healthy"}
+
+
+@app.get("/health")
+async def health_check():
+    """
+    Health check endpoint
+    """
+    return {"status": "healthy", "service": "RAG Chatbot API"}
+
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host=settings.api_host, port=settings.api_port)
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True  # Set to False in production
+    )
